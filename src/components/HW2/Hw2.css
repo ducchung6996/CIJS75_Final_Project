@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hw2 {
+    text-align: center;
+}
+
+h1 {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+form>input {
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    height: 40px;
+    background-color: #34495e;
+    color: #fff;
+}
+
+form>button {
+    height: 40px;
+    padding: 0 10px;
+    background-color: #34495e;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form>button:hover {
+    text-decoration: underline;
+}
+
+::placeholder {
+    color: #fff;
+    opacity: 0.6;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+@keyframes appear {
+    from{transform: scaleY(0); opacity: 0;}
+    to{transform: scaleY(1); opacity: 1;}
+}
+
+.list-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    padding: 16px;
+    background-color: #2c3e50;
+    color: #fff;
+    animation: appear;
+    transform-origin: top center;
+    animation-duration: 0.5s;
+    transition: 0.5s;
+}
+
+.list-items>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.finish {
+    background-color: #535b5c;
+}
+
+.finish .todo {
+    text-decoration: line-through;
+}
+
+.list-items>button {
+    padding: 6px 10px;
+    font-weight: bold;
+    background-color: #e74c3c;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.list-items input {
+    width: 25px;
+    height: 25px;
+}
+
+.list-items>button:hover {
+    background-color: #e9938a;
+}
+
+.todo {
+    overflow: auto;
+}

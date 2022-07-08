@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hw3 {
+    text-align: center;
+}
+
+.squ {
+    width: 30px;
+    height: 30px;
+    border: solid 1px #000;
+    display: inline-block;
+    margin: 10px;
+}
+
+.cir {
+    width: 30px;
+    height: 30px;
+    border: solid 1px #000;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 50%;
+}
