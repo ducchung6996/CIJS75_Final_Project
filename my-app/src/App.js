@@ -1,15 +1,17 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Welcome from "./components/Welcome/Welcome";
+import Slider from "./components/Slider/Slider";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Header/>
-      <Routes>
-        <Route path="/"/>
-      </Routes>
-    </BrowserRouter>
+      <Welcome/>
+      <Slider/>
+      <Outlet/>
+    </>
   );
 }
 

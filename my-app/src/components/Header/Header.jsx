@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
 import Welcome from '../Welcome/Welcome'
+import {RiLoginBoxLine} from 'react-icons/ri'
+import {HiOutlinePencil} from 'react-icons/hi'
 
 const Header = () => {
   return (
@@ -12,12 +14,11 @@ const Header = () => {
             <Link to='about'>About</Link>
             <Link to='foodtour'>Foodtour</Link>
             <Link to='contacts'>Contacts</Link>
-            <button>Login</button>
+            <button>Login <RiLoginBoxLine/></button>
             <p>Or</p>
-            <button>Signup</button>
+            <button>Signup <HiOutlinePencil/></button>
         </nav>
     </section>
-    <Welcome/>
     </>
   )
 }
