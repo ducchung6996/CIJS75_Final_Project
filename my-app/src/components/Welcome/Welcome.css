@@ -1,5 +1,7 @@
 #welcome {
     height: 100vh;
     width: 100%;
-    background-color: #16a085;
+    background-image: url(/images/Nem.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
