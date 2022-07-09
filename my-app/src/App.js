@@ -7,9 +7,9 @@ import Slider from "./components/Slider/Slider";
 const App = () => {
   return (
     <>
-      <Welcome/>
-      <Slider/>
-      <Outlet/>
+      <Welcome />
+      <Slider />
+      <Outlet />
     </>
   );
 }
