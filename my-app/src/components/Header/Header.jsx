@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import { RiLoginBoxLine } from "react-icons/ri";
 import { HiOutlinePencil } from "react-icons/hi";
-import { useState, useEffect } from "react";
-import LoginSignup from "../LoginSignup/LoginSignup";
+import { useState } from "react";
 
 const Header = () => {
   const [scrollBarPosition, setScrollBarPosition] = useState(0);
@@ -24,21 +23,24 @@ const Header = () => {
           <Link to="about">About</Link>
           <Link to="foodtour">Foodtour</Link>
           <Link to="contacts">Contacts</Link>
-          <button>
-            Login <RiLoginBoxLine />
-          </button>
-          <p>Or</p>
-          <button>
-            Signup <HiOutlinePencil />
-          </button>
+          <div className="login-signup-btn">
+            <Link to="login">
+              Login <RiLoginBoxLine />
+            </Link>
+            <p>Or</p>
+            <Link to="signup">
+              Signup <HiOutlinePencil />
+            </Link>
+          </div>
         </nav>
       </section>
       <a
         className="back-to-top"
         style={{ opacity: scrollBarPosition > 160 ? 1 : 0 }}
         href="#"
-      >▲</a>
-      <LoginSignup />
+      >
+        ▲
+      </a>
     </>
   );
 };
