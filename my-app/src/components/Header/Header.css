@@ -38,3 +38,23 @@
     gap: 6px;
     font-size: 16px;
 }
+
+.back-to-top {
+    color: aliceblue;
+    background-color: #2980b9;
+    padding: 16px;
+    font-size: 25px;
+    text-decoration: none;
+    transition: 0.4s;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.back-to-top:hover {
+    background-color: #6aa8d1;
+}
+
+.back-to-top:active {
+    background-color: #a5c7dd;
+}
