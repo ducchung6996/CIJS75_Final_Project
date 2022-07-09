@@ -38,7 +38,7 @@ const Header = () => {
         style={{ opacity: scrollBarPosition > 160 ? 1 : 0 }}
         href="#"
       >▲</a>
-      <LoginSignup />
+      {/* <LoginSignup /> */}
     </>
   );
 };

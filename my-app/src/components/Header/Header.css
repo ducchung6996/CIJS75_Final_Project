@@ -6,6 +6,7 @@
     position: fixed;
     width: 100%;
     transition: 0.4s;
+    z-index: 1;
 }
 
 .logo {
