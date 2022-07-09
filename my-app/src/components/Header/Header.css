@@ -5,12 +5,13 @@
     padding: 5px 3%;
     position: fixed;
     width: 100%;
-    /* background-color: #34495e; */
+    transition: 0.4s;
 }
 
 .logo {
-    height: 80px;
-    width: auto;
+    height: 60px;
+    width: 100px;
+    object-fit: cover;
 }
 
 .header-nav {
@@ -22,15 +23,22 @@
 }
 
 .header-nav a {
-    color: #fff;
+    color: #ffedbb;
+    text-transform: uppercase;
+    font-weight: 800;
     font-size: 20px;
     margin-right: 4vw;
 }
 
 .header-nav button {
-    background-color: #ecf0f1;
+    background-color: #e18936;
+    color: #ffedbb; 
+    font-weight: 600;
     font-size: 16px;
     border: none;
     cursor: pointer;
     padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
