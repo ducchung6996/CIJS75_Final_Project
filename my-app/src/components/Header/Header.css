@@ -6,11 +6,13 @@
     position: fixed;
     width: 100%;
     transition: 0.4s;
+    z-index: 1;
 }
 
 .logo {
     height: 60px;
-    width: auto;
+    width: 100px;
+    object-fit: cover;
 }
 
 .header-nav {
@@ -21,7 +23,9 @@
 }
 
 .header-nav>a {
-    color: #fff;
+    color: #ffedbb;
+    text-transform: uppercase;
+    font-weight: 800;
     font-size: 20px;
     margin-right: 4vw;
 }
