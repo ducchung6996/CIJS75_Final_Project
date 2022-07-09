@@ -17,8 +17,9 @@
 }
 
 .login-form {
-    width: 24%;
-    min-width: 300px;
+    width: 420px;
+    max-width: 30%;
+    min-width: 320px;
     background-color: #ecf0f1;
     height: fit-content; 
     position: relative;
