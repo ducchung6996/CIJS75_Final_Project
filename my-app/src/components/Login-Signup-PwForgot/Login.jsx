@@ -59,6 +59,7 @@ const Login = () => {
     <div className="login">
       <form className="login-form" onSubmit={handleSubmit}>
         <h1>Đăng nhập</h1>
+        <label className="input-label" htmlFor="user">Tên tài khoản</label>
         <input
           onChange={handleUser}
           className={`user ${userError && "active"}`}
@@ -69,6 +70,7 @@ const Login = () => {
           maxLength={18}
           required
         />
+        <label className="input-label" htmlFor="pw">Mật khẩu</label>
         <input
           onChange={handlePw}
           className={`user ${pwError && "active"}`}

@@ -113,6 +113,7 @@ const Signup = () => {
     <div className="login">
       <form className="login-form" onSubmit={handleSubmit}>
         <h1>Đăng ký</h1>
+        <label className="input-label" htmlFor="user">Tên tài khoản</label>
         <input
           onChange={handleUser}
           className={`user ${userError && "active"}`}
@@ -123,6 +124,7 @@ const Signup = () => {
           maxLength={24}
           required
         />
+        <label className="input-label" htmlFor="email">Địa chỉ email</label>
         <input
           onChange={handleEmail}
           className={`user ${emailError && "active"}`}
@@ -131,6 +133,7 @@ const Signup = () => {
           placeholder="Nhập địa chỉ email"
           required
         />
+        <label className="input-label" htmlFor="pw">Mật khẩu</label>
         <input
           onChange={handlePw}
           className={`user ${pwError && "active"}`}
@@ -141,6 +144,7 @@ const Signup = () => {
           maxLength={24}
           required
         />
+        <label className="input-label" htmlFor="repw">Xác nhận mật khẩu</label>
         <input
           onChange={handleRepw}
           className={`user ${rePwError && "active"}`}
