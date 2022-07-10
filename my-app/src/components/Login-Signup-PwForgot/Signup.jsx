@@ -81,7 +81,9 @@ const Signup = () => {
       email: email,
       pw: pw,
       userName: "",
-      userAvatar: "",
+      userAvatar: "images/DefaultUser.png",
+      todolist: [],
+      dob: "",
     };
     const userEmailProfile = {
       user: user,
@@ -118,7 +120,7 @@ const Signup = () => {
           type="text"
           placeholder="Nhập tên tài khoản"
           minLength={6}
-          maxLength={18}
+          maxLength={24}
           required
         />
         <input
@@ -136,7 +138,7 @@ const Signup = () => {
           type="password"
           placeholder="Nhập mật khẩu"
           minLength={6}
-          maxLength={18}
+          maxLength={24}
           required
         />
         <input
@@ -146,7 +148,7 @@ const Signup = () => {
           type="password"
           placeholder="Nhập lại mật khẩu"
           minLength={6}
-          maxLength={18}
+          maxLength={24}
           required
         />
         <div className={`error ${errorStatus && "active"}`}>{error}</div>

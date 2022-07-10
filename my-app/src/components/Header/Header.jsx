@@ -12,6 +12,9 @@ const MySwal = withReactContent(Swal);
 
 const Header = () => {
   const [user, setUser] = useState(localStorage.getItem("savedUser"));
+  const [loggedUser, setLoggedUser] = useState(
+    JSON.parse(localStorage.getItem(user))
+  );
   const [scrollBarPosition, setScrollBarPosition] = useState(0);
   document.addEventListener("scroll", () =>
     setScrollBarPosition(document.documentElement.scrollTop)
@@ -36,11 +39,9 @@ const Header = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             localStorage.removeItem("savedUser")
-            setUser(null)
             window.open("/", "_self");
           } else {
             localStorage.removeItem("savedUser")
-            setUser(null)
             window.open("/", "_self");
           }
         });
@@ -71,6 +72,7 @@ const Header = () => {
           </div>
           <div className={`user-menu ${user && "active"}`}>
             Chào mừng <strong>{user}</strong>
+            <span className="user-btn-avatar-container"><img src={loggedUser ? loggedUser.userAvatar : "images/DefaultUser.png"} className="user-btn-avatar" alt="avatar" /></span>
             <div className="user-submenu">
               <Link to='userprofile'>Thông tin người dùng</Link>
               <Link to='todolist'>My todo list</Link>

@@ -65,11 +65,27 @@
     border: none;
     cursor: pointer;
     transition: 0.4s;
+    margin-bottom: 20px;
+}
+
+.login-form>a {
+    width: 85%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .login-form>button:hover {
-    background-color: #35b89d;
+    transform: scale(1.05);
+}
+
+.login-form>a:hover {
+    transform: scale(1.05);
 }
 
 .login-with {

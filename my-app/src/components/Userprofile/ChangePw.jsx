@@ -1,13 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
-const PwForgot = () => {
-  const [user, setUser] = useState("");
-  const [userError, setUserError] = useState(false);
+const ChangePw = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [pw, setPw] = useState("");
@@ -16,11 +15,6 @@ const PwForgot = () => {
   const [rePwError, setRePwError] = useState(false);
   const [error, setError] = useState("error");
   const [errorStatus, setErrorStatus] = useState(false);
-  const handleUser = (evt) => {
-    setUser(evt.target.value);
-    setErrorStatus(false);
-    setUserError(false);
-  };
   const handleEmail = (evt) => {
     setEmail(evt.target.value);
     setErrorStatus(false);
@@ -38,13 +32,8 @@ const PwForgot = () => {
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const userProfile = JSON.parse(localStorage.getItem(user));
-    if (!localStorage.getItem(user) || user.includes("@")) {
-      setError("Tài khoản này không tồn tại");
-      setErrorStatus(true);
-      setUserError(true);
-      return;
-    }
+    const currentUser = localStorage.getItem("savedUser");
+    const userProfile = JSON.parse(localStorage.getItem(currentUser));
     if (email !== userProfile.email) {
       setError("Bạn đã nhập sai email");
       setErrorStatus(true);
@@ -69,26 +58,23 @@ const PwForgot = () => {
       setRePwError(true);
       return;
     }
-    const updatedUserProfile = JSON.parse(localStorage.getItem(user));
+    const updatedUserProfile = JSON.parse(localStorage.getItem(currentUser));
     updatedUserProfile.pw = pw;
     const userEmailProfile = JSON.parse(localStorage.getItem(email));
     userEmailProfile.pw = pw;
-    localStorage.setItem(user, JSON.stringify(updatedUserProfile));
+    localStorage.setItem(currentUser, JSON.stringify(updatedUserProfile));
     localStorage.setItem(email, JSON.stringify(userEmailProfile));
     MySwal.fire({
       title: <h1>Done</h1>,
-      html: <h2>Khôi phục mật khẩu thành công</h2>,
-      confirmButtonText: "Trở về trang chủ",
+      html: <h2>Đổi mật khẩu thành công</h2>,
+      confirmButtonText: "Oke la",
       confirmButtonColor: "#27ae60",
-      showDenyButton: true,
-      denyButtonText: `Đi tới đăng nhập`,
-      denyButtonColor: "#2980b9",
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
-        window.open("/", "_self");
-      } else if (result.isDenied) {
-        window.open("/login", "_self");
+        window.open("/userprofile", "_self");
+      } else {
+        window.open("/userprofile", "_self");
       }
     });
     document.forms[0].reset();
@@ -96,17 +82,7 @@ const PwForgot = () => {
   return (
     <div className="login">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Khôi phục mật khẩu</h1>
-        <input
-          onChange={handleUser}
-          className={`user ${userError && "active"}`}
-          name="user"
-          type="text"
-          placeholder="Nhập tên tài khoản"
-          minLength={6}
-          maxLength={24}
-          required
-        />
+        <h1>Thay đổi mật khẩu</h1>
         <input
           onChange={handleEmail}
           className={`user ${emailError && "active"}`}
@@ -137,9 +113,10 @@ const PwForgot = () => {
         />
         <div className={`error ${errorStatus && "active"}`}>{error}</div>
         <button type="submit">OKE</button>
+        <Link to='/userprofile'>Cancel</Link>
       </form>
     </div>
   );
 };
 
-export default PwForgot;
+export default ChangePw;

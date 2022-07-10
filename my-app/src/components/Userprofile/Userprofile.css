@@ -1,0 +1,146 @@
+#userprofile {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-image:
+        linear-gradient(0deg, rgba(0, 0, 0, 6.5e-05) 0%, rgba(0, 0, 0, 0.65) 100%),
+        url(../images/background.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.user-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ecf0f1;
+    padding: 10px 0 20px;
+    width: 25%;
+    min-width: 300px;
+    max-width: 400px;
+    position: relative;
+    animation: fadein 0.5s;
+}
+
+.cancel {
+    width: 85%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cancel:hover {
+    transform: scale(1.05);
+}
+
+.submit-btn {
+    width: 85%;
+    padding: 10px;
+    background-color: #16a085;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+    margin: 10px 0 20px;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+}
+
+.user-avatar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+.user-avatar {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.user-profile-container h1 {
+    font-size: 24px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.security-change {
+    font-weight: bold;
+    color: #2980b9;
+    margin: 10px;
+}
+
+.security-change:hover {
+    text-decoration: underline;
+}
+
+.edit-user-profile {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background-color: #27ae60;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.4s;
+    color: #000;
+}
+
+.user-infor {
+    width: 85%;
+    text-align: left;
+    border-bottom: solid 1px #34495e;
+    padding: 5px;
+    text-overflow: ellipsis;
+    margin-bottom: 20px;
+}
+
+.edit-user-profile:hover {
+    transform: scale(1.2);
+}
+
+.upload-avatar {
+    padding: 10px;
+    color: #fff;
+    background-color: #2980b9;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 10px;
+}
+
+#upload-avatar {
+    visibility: hidden;
+    position: absolute;
+}
+
+.upload-avatar:hover {
+    transform: scale(1.1);
+}
+
+.user {
+    width: 85%;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.input-label {
+    margin-bottom: 5px;
+    text-align: left;
+    width: 85%;
+}
