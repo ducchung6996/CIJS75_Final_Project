@@ -44,6 +44,7 @@
     padding: 10px;
     outline: none;
     font-size: 16px;
+    transition: 0.4s;
 }
 
 .login-form>button {
@@ -96,7 +97,7 @@
 }
 
 .user {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .pw-forgot {
@@ -115,7 +116,28 @@
     text-decoration: underline;
 }
 
+.user.active {
+    background-color: #ff7d6e;
+}
+
 .error {
     opacity: 0;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    color: red;
+    width: 85%;
+    text-align: center;
+}
+
+.error.active {
+    opacity: 1;
+    animation: inputerror;
+}
+
+@keyframes inputerror {
+    0% {transform: translateX(0);};
+    25% {transform: translateX(-40px);};
+    50% {transform: translateX(0);};
+    75% {transform: translateX(40px);};
+    100% {transform: translateX(0);};
 }
