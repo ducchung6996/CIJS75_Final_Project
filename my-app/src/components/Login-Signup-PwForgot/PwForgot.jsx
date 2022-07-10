@@ -69,16 +69,10 @@ const PwForgot = () => {
       setRePwError(true);
       return;
     }
-    const updatedUserProfile = {
-      email: email,
-      pw: pw,
-      userName: "",
-      userAvatar: "",
-    };
-    const userEmailProfile = {
-      user: user,
-      pw: pw,
-    };
+    const updatedUserProfile = JSON.parse(localStorage.getItem(user));
+    updatedUserProfile.pw = pw;
+    const userEmailProfile = JSON.parse(localStorage.getItem(email));
+    userEmailProfile.pw = pw;
     localStorage.setItem(user, JSON.stringify(updatedUserProfile));
     localStorage.setItem(email, JSON.stringify(userEmailProfile));
     MySwal.fire({

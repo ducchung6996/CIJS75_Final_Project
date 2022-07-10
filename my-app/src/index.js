@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import Login from "./components/Login-Signup-PwForgot/Login";
 import Signup from "./components/Login-Signup-PwForgot/Signup";
 import PwForgot from "./components/Login-Signup-PwForgot/PwForgot";
+import Userprofile from "./components/Userprofile/Userprofile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <Route path="login" element={<Login/>}/>
         <Route path="signup" element={<Signup/>}/>
         <Route path="pwforgot" element={<PwForgot/>}/>
+        <Route path="userprofile" element={<Userprofile/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

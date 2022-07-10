@@ -13,6 +13,11 @@
     height: 60px;
     width: 100px;
     object-fit: cover;
+    transition: 0.4s;
+}
+
+.logo:hover {
+    transform: scale(1.2);
 }
 
 .header-nav {
@@ -28,18 +33,28 @@
     font-weight: 800;
     font-size: 20px;
     margin-right: 4vw;
+    transition: 0.4s;
 }
 
 .header-nav>a:hover {
-    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+@keyframes appear {
+    from {transform: translateY(-60px);opacity: 0;}
+    to {transform: translateY(0);opacity: 1;}
 }
 
 .login-signup-btn {
     font-size: 16px;
-    display: flex;
+    display: none;
     gap: 16px;
     align-items: center;
     font-size: 16px;
+}
+
+.login-signup-btn.active {
+    display: flex;
 }
 
 .login-signup-btn>a {
@@ -56,9 +71,74 @@
     transform: scale(1.1);
 }
 
+.user-menu {
+    background-color: #e18936;
+    padding: 8px 16px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: content-box;
+    cursor: pointer;
+    transition: 0.4s;
+    perspective: 1000px;
+    animation: appear 0.5s;
+}
+
+.user-menu.active {
+    display: flex;
+}
+
+.user-menu>strong {
+    margin-left: 5px;
+}
+
+.user-menu:hover {
+    background-color: #a36124;
+}
+
+.user-menu:hover .user-submenu {
+    opacity: 1;
+    transform: rotateX(0);
+}
+
+.user-submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.5s;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+
+.user-submenu>* {
+    background-color: #e18936;
+    width: 100%;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    border-top: solid 1px #34495e;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+}
+
+.user-submenu>*:hover {
+    background-color: #a36124;
+}
+
 .back-to-top {
     color: aliceblue;
-    background-color: #2980b9;
+    background-color: #e18936;
     padding: 16px;
     font-size: 25px;
     text-decoration: none;
@@ -69,9 +149,9 @@
 }
 
 .back-to-top:hover {
-    background-color: #6aa8d1;
+    background-color: #a36124;
 }
 
 .back-to-top:active {
-    background-color: #a5c7dd;
+    background-color: #e18936;
 }
