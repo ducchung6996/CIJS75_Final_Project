@@ -17,16 +17,28 @@
     text-align:center;
 }
 
+@keyframes fadeinleft {
+    from {transform: translateX(-200px); opacity: 0;}
+    to {transform: translateX(0); opacity: 1;}
+}
+
+@keyframes fadeinright {
+    from {transform: translateX(200px); opacity: 0;}
+    to {transform: translateX(0); opacity: 1;}
+}
+
 .wlc-title{
     font-size: 36px;
     color: #e18936; 
     font-weight: 600;
+    animation: fadeinleft 1s;
 }
 
 .wlc-subtitle{
     font-size: 20px;
     margin: 20px 0;  
     color:bisque; 
+    animation: fadeinleft 1s;
 }
 
 .wlc-search-box{
@@ -42,6 +54,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: fadeinright 1s;
 }
 
 .wlc-search-btn{
