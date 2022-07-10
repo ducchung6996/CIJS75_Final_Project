@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Banhdacua = [
     {
         id: 1,

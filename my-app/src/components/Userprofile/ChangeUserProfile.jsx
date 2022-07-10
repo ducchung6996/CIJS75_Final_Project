@@ -15,8 +15,9 @@ const ChangeUserProfile = () => {
   const [userName, setUserName] = useState(loggedUser && loggedUser.userName);
   const [userNameError, setUserNameError] = useState(false);
   const [userDob, setUserDob] = useState(loggedUser && loggedUser.dob);
-  const [userDobError, setUserDobError] = useState(false);
-  const [userAvatar, setUserAvatar] = useState(loggedUser && loggedUser.userAvatar);
+  const [userAvatar, setUserAvatar] = useState(
+    loggedUser && loggedUser.userAvatar
+  );
   const [error, setError] = useState("error");
   const [errorStatus, setErrorStatus] = useState(false);
   const handleUserName = (evt) => {
@@ -26,8 +27,6 @@ const ChangeUserProfile = () => {
   };
   const handleUserDob = (evt) => {
     setUserDob(evt.target.value);
-    setErrorStatus(false);
-    setUserDobError(false);
   };
   function handleUserAvatar(evt) {
     const reader = new FileReader();
@@ -37,7 +36,7 @@ const ChangeUserProfile = () => {
     reader.readAsDataURL(evt.target.files[0]);
   }
   function checkIfStringHasSpecialChar(string) {
-    let spChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    let spChars = /[!@#$%^&*()_+-=[\]{};':"|,.<>/?]+/;
     if (spChars.test(string)) {
       return true;
     } else {
@@ -70,7 +69,6 @@ const ChangeUserProfile = () => {
         window.open("/userprofile", "_self");
       }
     });
-    document.forms[0].reset();
   };
 
   return (
@@ -80,7 +78,13 @@ const ChangeUserProfile = () => {
         <div className="user-avatar-container">
           <img
             className="user-avatar"
-            src={userAvatar ? userAvatar : loggedUser ? loggedUser.userAvatar : "images/DefaultUser.png"}
+            src={
+              userAvatar
+                ? userAvatar
+                : loggedUser
+                ? loggedUser.userAvatar
+                : "images/DefaultUser.png"
+            }
             alt="User"
           />
         </div>
@@ -110,12 +114,11 @@ const ChangeUserProfile = () => {
           Nhập ngày sinh
         </label>
         <input
-            id="userDob"
+          id="userDob"
           onChange={handleUserDob}
-          className={`user ${userDobError && "active"}`}
+          className="user"
           name="userDob"
           type="date"
-          data-date-format="DD MMMM YYYY"
           defaultValue={loggedUser && loggedUser.dob}
         />
         <div className={`error ${errorStatus && "active"}`}>{error}</div>

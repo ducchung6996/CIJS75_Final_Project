@@ -19,6 +19,10 @@ const Header = () => {
   document.addEventListener("scroll", () =>
     setScrollBarPosition(document.documentElement.scrollTop)
   );
+  function scrollFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
   const handleLogout = () => {
     MySwal.fire({
       title: <h1>Bạn có muốn đăng xuất ?</h1>,
@@ -38,16 +42,20 @@ const Header = () => {
           icon: "success",
         }).then((result) => {
           if (result.isConfirmed) {
-            localStorage.removeItem("savedUser")
+            localStorage.removeItem("savedUser");
             window.open("/", "_self");
+            setUser(null);
+            setLoggedUser(null);
           } else {
-            localStorage.removeItem("savedUser")
+            localStorage.removeItem("savedUser");
             window.open("/", "_self");
+            setUser(null);
+            setLoggedUser(null);
           }
         });
       }
     });
-  }
+  };
   return (
     <>
       <section
@@ -72,10 +80,18 @@ const Header = () => {
           </div>
           <div className={`user-menu ${user && "active"}`}>
             Chào mừng <strong>{user}</strong>
-            <span className="user-btn-avatar-container"><img src={loggedUser ? loggedUser.userAvatar : "images/DefaultUser.png"} className="user-btn-avatar" alt="avatar" /></span>
+            <span className="user-btn-avatar-container">
+              <img
+                src={
+                  loggedUser ? loggedUser.userAvatar : "images/DefaultUser.png"
+                }
+                className="user-btn-avatar"
+                alt="avatar"
+              />
+            </span>
             <div className="user-submenu">
-              <Link to='userprofile'>Thông tin người dùng</Link>
-              <Link to='todolist'>My todo list</Link>
+              <Link to="userprofile">Thông tin người dùng</Link>
+              <Link to="todolist">My todo list</Link>
               <button onClick={handleLogout}>
                 Đăng xuất <TbLogout />
               </button>
@@ -83,13 +99,13 @@ const Header = () => {
           </div>
         </nav>
       </section>
-      <a
+      <button
+        onClick={scrollFunction}
         className="back-to-top"
         style={{ opacity: scrollBarPosition > 160 ? 1 : 0 }}
-        href="#"
       >
         ▲
-      </a>
+      </button>
     </>
   );
 };

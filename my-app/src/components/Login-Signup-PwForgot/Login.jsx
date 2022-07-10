@@ -91,18 +91,10 @@ const Login = () => {
         </p>
         <p>Hoặc đăng nhập bằng</p>
         <div className="login-with">
-          <a>
-            <img src="images/fb.png" alt="Facebook" />
-          </a>
-          <a>
-            <img src="images/ins.png" alt="Instagram" />
-          </a>
-          <a>
-            <img src="images/gg.png" alt="Google" />
-          </a>
-          <a>
-            <img src="images/tiw.png" alt="Twitter" />
-          </a>
+          <img src="images/fb.png" alt="Facebook" />
+          <img src="images/ins.png" alt="Instagram" />
+          <img src="images/gg.png" alt="Google" />
+          <img src="images/tiw.png" alt="Twitter" />
         </div>
       </form>
     </div>

@@ -38,7 +38,7 @@ const Signup = () => {
     setRePwError(false);
   };
   function checkIfStringHasSpecialChar(string) {
-    let spChars = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    let spChars = /[ !@#$%^&*()_+-=[\]{};':"|,.<>/?]+/;
     if (spChars.test(string)) {
       return true;
     } else {
@@ -158,7 +158,7 @@ const Signup = () => {
         <div className={`error ${errorStatus && "active"}`}>{error}</div>
         <p>
           Bằng việc đăng ký bạn đã chấp nhận với{" "}
-          <a>điều khoản sử dụng và chính sách bảo mật</a> của chúng tôi
+          <span>điều khoản sử dụng và chính sách bảo mật</span> của chúng tôi
         </p>
         <button type="submit">Đăng ký</button>
         <p>
