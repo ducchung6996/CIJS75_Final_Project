@@ -13,7 +13,7 @@ const SliderSection = () => {
   const settings = {
     className: "slider variable-width",
     centerMode: true,
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
