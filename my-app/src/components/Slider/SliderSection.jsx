@@ -15,14 +15,15 @@ const SliderSection = () => {
     centerMode: true,
     dots: false,
     infinite: true,
-    slidesToScroll: 1,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     variableWidth: true,
     autoplay: true,
     speed: 500,
     autoplaySpeed: 4000,
     arrows: false,
     pauseOnHover: true,
-    centerPadding: "60px",
+    swipeToSlide:true,
   };
   return (
     <section id="slider">
@@ -35,12 +36,12 @@ const SliderSection = () => {
                 <img className="slider-image" src={item.image} alt={index} />
                 <div className="slider-item-description">
                   <h1 className="slider-item-title">{item.title}</h1>
-                  <p className="slider-item-location"><TbMapPin/> {item.location}</p>
+                  <a href={item.map} target="_blank" className="slider-item-location"><TbMapPin/> {item.location}</a>
                   <div className="more">
-                    <Link className="read-more" to="/">
-                      Xem chi tiết
-                    </Link>
                     <button className="add-todo">+ Thêm vào todo list</button>
+                    <Link className="read-more" to="/">
+                      Xem chi tiết ►
+                    </Link>
                   </div>
                 </div>
               </div>
