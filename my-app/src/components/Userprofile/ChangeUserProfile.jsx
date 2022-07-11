@@ -1,17 +1,15 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Userprofile.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { LoggedUser } from "../../index";
 
 const MySwal = withReactContent(Swal);
 
 const ChangeUserProfile = () => {
-  const currentUser = localStorage.getItem("savedUser");
-  const [loggedUser, setLoggedUser] = useState(
-    JSON.parse(localStorage.getItem(currentUser))
-  );
+  const loggedUser = useContext(LoggedUser);
   const [userName, setUserName] = useState(loggedUser && loggedUser.userName);
   const [userNameError, setUserNameError] = useState(false);
   const [userDob, setUserDob] = useState(loggedUser && loggedUser.dob);
@@ -51,11 +49,11 @@ const ChangeUserProfile = () => {
       setUserNameError(true);
       return;
     }
-    const updatedUserProfile = JSON.parse(localStorage.getItem(currentUser));
+    const updatedUserProfile = JSON.parse(localStorage.getItem(localStorage.getItem('savedUser')));
     updatedUserProfile.userName = userName;
     updatedUserProfile.dob = userDob;
     updatedUserProfile.userAvatar = userAvatar;
-    localStorage.setItem(currentUser, JSON.stringify(updatedUserProfile));
+    localStorage.setItem(localStorage.getItem('savedUser'), JSON.stringify(updatedUserProfile));
     MySwal.fire({
       title: <h1>Done</h1>,
       html: <h2>Đổi thông tin người dùng thành công</h2>,
@@ -97,7 +95,7 @@ const ChangeUserProfile = () => {
           id="upload-avatar"
           type="file"
         />
-        <h1>{currentUser}</h1>
+        <h1>{localStorage.getItem('savedUser')}</h1>
         <label className="input-label" htmlFor="userName">
           Tên người dùng
         </label>

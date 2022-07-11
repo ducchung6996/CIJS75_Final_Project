@@ -1,12 +1,12 @@
 import React from "react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Userprofile.css";
 import { FiEdit3, FiEdit } from "react-icons/fi";
+import { LoggedUser } from "../../index";
+import { useContext } from "react";
 
 const Userprofile = () => {
-  const currentUser = localStorage.getItem("savedUser");
-  const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem(currentUser)));
+  const loggedUser = useContext(LoggedUser);
   function formatDate(input) {
     var datePart = input.match(/\d+/g),
       year = datePart[0].substring(0), // get only two digits
@@ -29,7 +29,7 @@ const Userprofile = () => {
             alt="User"
           />
         </div>
-        <h1>{currentUser}</h1>
+        <h1>{localStorage.getItem('savedUser')}</h1>
         <div className="user-infor">
           Tên người dùng: {loggedUser && loggedUser.userName}
         </div>

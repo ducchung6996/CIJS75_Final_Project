@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -11,23 +11,28 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import ChangePw from "./components/Userprofile/ChangePw";
 import ChangeEmail from "./components/Userprofile/ChangeEmail";
 import ChangeUserProfile from "./components/Userprofile/ChangeUserProfile";
+import Footer from "./components/Footer/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const loginStatus = localStorage.getItem("savedUser");
+const loggedUser = JSON.parse(localStorage.getItem(localStorage.getItem("savedUser")));
+export const LoggedUser = createContext();
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<App />}/>
-        <Route path="login" element={<Login/>}/>
-        <Route path="signup" element={<Signup/>}/>
-        <Route path="pwforgot" element={<PwForgot/>}/>
-        {loginStatus && <Route path="changepw" element={<ChangePw/>}/>}
-        {loginStatus && <Route path="changeemail" element={<ChangeEmail/>}/>}
-        {loginStatus && <Route path="changeuserprofile" element={<ChangeUserProfile/>}/>}
-        {loginStatus && <Route path="userprofile" element={<Userprofile/>}/>}
-      </Routes>
+      <LoggedUser.Provider value={loggedUser}>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<App />}/>
+          <Route path="login" element={<Login/>}/>
+          <Route path="signup" element={<Signup/>}/>
+          <Route path="pwforgot" element={<PwForgot/>}/>
+          {loggedUser && <Route path="changepw" element={<ChangePw/>}/>}
+          {loggedUser && <Route path="changeemail" element={<ChangeEmail/>}/>}
+          {loggedUser && <Route path="changeuserprofile" element={<ChangeUserProfile/>}/>}
+          {loggedUser && <Route path="userprofile" element={<Userprofile/>}/>}
+        </Routes>
+        <Footer/>
+      </LoggedUser.Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
