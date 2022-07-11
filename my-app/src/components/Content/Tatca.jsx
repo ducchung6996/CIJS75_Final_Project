@@ -1,4 +1,4 @@
-const Banhbeo = [
+const Tatca = [
     {
         id: 0,
         title: "Bánh Bèo Lê Đại Hành",
@@ -41,4 +41,4 @@ const Banhbeo = [
     },
 ]
 
-export default Banhbeo
+export default Tatca

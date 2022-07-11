@@ -14,8 +14,8 @@
 }
 
 .slider-image {
-    width: 360px;
-    height: 240px;
+    width: 320px;
+    height: 200px;
 }
 
 .slider-title {
@@ -64,4 +64,5 @@
     transition: 0.4s;
     white-space: nowrap;
     border: none;
+    color: #fff;
 }

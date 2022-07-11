@@ -24,6 +24,7 @@
 .user-btn-avatar {
     min-width: 100%;
     min-height: 100%;
+    object-fit: cover;
 }
 
 .logo {

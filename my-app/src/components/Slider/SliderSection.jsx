@@ -4,6 +4,7 @@ import Banhdacua from "../Content/Banhdacua";
 import Banhmicay from "../Content/Banhmicay";
 import Che from "../Content/Che";
 import Slider from "react-slick";
+import {TbMapPin} from 'react-icons/tb'
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -34,10 +35,10 @@ const SliderSection = () => {
                 <img className="slider-image" src={item.image} alt={index} />
                 <div className="slider-item-description">
                   <h1 className="slider-item-title">{item.title}</h1>
-                  <p className="slider-item-location"></p>
+                  <p className="slider-item-location"><TbMapPin/> {item.location}</p>
                   <div className="more">
                     <Link className="read-more" to="/">
-                      Xem thêm ...
+                      Xem chi tiết
                     </Link>
                     <button className="add-todo">+ Thêm vào todo list</button>
                   </div>

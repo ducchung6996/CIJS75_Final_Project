@@ -12,6 +12,7 @@ import ChangePw from "./components/Userprofile/ChangePw";
 import ChangeEmail from "./components/Userprofile/ChangeEmail";
 import ChangeUserProfile from "./components/Userprofile/ChangeUserProfile";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/Header/ScrollToTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const loggedUser = JSON.parse(localStorage.getItem(localStorage.getItem("savedUser")));
@@ -21,6 +22,7 @@ root.render(
     <BrowserRouter>
       <LoggedUser.Provider value={loggedUser}>
         <Header/>
+        <ScrollToTop/>
         <Routes>
           <Route path="/" element={<App />}/>
           <Route path="login" element={<Login/>}/>
