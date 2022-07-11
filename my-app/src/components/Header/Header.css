@@ -168,6 +168,8 @@
     right: 50px;
     border: none;
     cursor: pointer;
+    z-index: 1;
+    border: 1px solid #000;
 }
 
 .back-to-top:hover {
