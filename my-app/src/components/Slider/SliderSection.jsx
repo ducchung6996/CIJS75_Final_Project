@@ -38,7 +38,7 @@ const SliderSection = () => {
               <div className="slider-item-container">
                 <div className="slider-image-container">
                   <img className="slider-image" src={item.image} alt={index} />
-                  <Link className="read-more" to="/">Xem chi tiết ►</Link>
+                  <Link className="read-more" to={`/${item.id}`}>Xem chi tiết ►</Link>
                 </div>
                 <div className="slider-item-description">
                   <h1 className="slider-item-title">{item.title}</h1>

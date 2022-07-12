@@ -60,7 +60,7 @@ const Header = () => {
     <>
       <section
         id="header"
-        style={{ backgroundColor: scrollBarPosition > 160 ? "#2c3e50" : null }}
+        style={{ backgroundColor: scrollBarPosition > 100 ? "#2c3e50" : null }}
       >
         <Link to="/">
           <img className="logo" src="images/logo.png" alt="Home" />
@@ -102,7 +102,7 @@ const Header = () => {
       <button
         onClick={scrollFunction}
         className="back-to-top"
-        style={{ opacity: scrollBarPosition > 160 ? 1 : 0 }}
+        style={{ opacity: scrollBarPosition > 100 ? 1 : 0 }}
       >
         ▲
       </button>

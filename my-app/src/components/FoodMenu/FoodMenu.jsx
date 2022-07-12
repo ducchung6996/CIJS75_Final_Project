@@ -66,7 +66,7 @@ const FoodMenu = () => {
                     src={item.image}
                     alt={item.title}
                   />
-                  <Link className="read-more" to="/">Xem chi tiết ►</Link>
+                  <Link className="read-more" to={`/${item.id}`}>Xem chi tiết ►</Link>
                 </div>
                 <dir className="food-description">
                   <h1 className="food-title">{item.title}</h1>
