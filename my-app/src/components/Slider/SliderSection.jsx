@@ -1,47 +1,56 @@
 import "./Slider.css";
-import Banhbeo from "../Content/Banhbeo";
-import Banhdacua from "../Content/Banhdacua";
-import Banhmicay from "../Content/Banhmicay";
-import Che from "../Content/Che";
 import Slider from "react-slick";
-import {TbMapPin} from 'react-icons/tb'
-
+import { TbMapPin } from "react-icons/tb";
+import Tatca from "../Content/Tatca";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const SliderSection = () => {
+  function createRandomFood(a) {
+    let arr = [];
+    for (let i = 0; i < 8; i++) {
+      let num = Math.floor(Math.random() * 20);
+      arr.push(a[num]);
+    }
+    return arr;
+  }
+  let recommendFood = createRandomFood(Tatca);
   const settings = {
     className: "slider variable-width",
     centerMode: true,
     dots: true,
     infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
     variableWidth: true,
     autoplay: true,
     speed: 500,
     autoplaySpeed: 4000,
     arrows: false,
     pauseOnHover: true,
-    swipeToSlide:true,
+    rows: 1,
   };
   return (
     <section id="slider">
       <div className="slider-title">HÔM NAY ĂN GÌ ?</div>
       <Slider {...settings}>
-        {Banhbeo.map((item, index) => {
+        {recommendFood.map((item, index) => {
           return (
             <div className="slider-item" key={item.id}>
               <div className="slider-item-container">
-                <img className="slider-image" src={item.image} alt={index} />
+                <div className="slider-image-container">
+                  <img className="slider-image" src={item.image} alt={index} />
+                  <Link className="read-more" to="/">Xem chi tiết ►</Link>
+                </div>
                 <div className="slider-item-description">
                   <h1 className="slider-item-title">{item.title}</h1>
-                  <a href={item.map} target="_blank" className="slider-item-location"><TbMapPin/> {item.location}</a>
+                  <a
+                    href={item.map}
+                    target="blank"
+                    className="slider-item-location"
+                  >
+                    <TbMapPin /> {item.location}
+                  </a>
                   <div className="more">
                     <button className="add-todo">+ Thêm vào todo list</button>
-                    <Link className="read-more" to="/">
-                      Xem chi tiết ►
-                    </Link>
                   </div>
                 </div>
               </div>

@@ -39,6 +39,126 @@ const Tatca = [
         map: "https://www.google.com/maps/place/%C4%90%E1%BB%93ng+T%C3%A2m/@20.8587883,106.7118888,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7bdca375ae05:0x800a6916c5435b3f!8m2!3d20.8587883!4d106.7118888",
         image: "images/BanhBeo/NgoDongTam.jpeg"
     },
+    {
+        id: 5,
+        title: "Bánh Đa Cua Cô Yến",
+        description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
+        location: '2B P. Phạm Ngũ Lão',
+        map: "https://www.google.com/maps/place/2B+P.+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o,+L%C6%B0%C6%A1ng+Kh%C3%A1+Thien,+Ng%C3%B4+Quy%E1%BB%81n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.857593,106.685688,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7af2da558101:0xa8c38cfd3ab69299!8m2!3d20.857593!4d106.685688",
+        image: "images/Banhdacua/2BPhamNguLao.jpeg"
+    },
+    {
+        id: 6,
+        title: "Bánh Đa Cua Lạch Tray",
+        description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
+        location: '48 Lạch Tray',
+        map: "https://www.google.com/maps/place/48+L%E1%BA%A1ch+Tray,+Ng%C3%B4+Quy%E1%BB%81n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8495516,106.6890004,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7a91ef72def1:0x3ca2af44c380816c!8m2!3d20.8495516!4d106.6890004",
+        image: "images/Banhdacua/48LachTray.jpeg"
+    },
+    {
+        id: 7,
+        title: "Bánh Đa Cua Cầu Đất",
+        description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
+        location: '195 P. Cầu Đất',
+        map: "https://www.google.com/maps/place/195+P.+C%E1%BA%A7u+%C4%90%E1%BA%A5t,+L%C3%AA+L%E1%BB%A3i,+Ng%C3%B4+Quy%E1%BB%81n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8525259,106.6857655,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7a8db76ae681:0xba3467fa45426a0b!8m2!3d20.8525259!4d106.6857655",
+        image: "images/Banhdacua/195CauDat.jpeg"
+    },
+    {
+        id: 8,
+        title: "Bánh Đa Cua Cô Cẩm",
+        description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
+        location: '173 Hàng Kênh',
+        map: "https://www.google.com/maps/place/173+H%C3%A0ng+K%C3%AAnh,+L%C3%AA+Ch%C3%A2n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.84834,106.685616,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7a8e53c3e39f:0x53f099b897eb44a5!8m2!3d20.84834!4d106.685616",
+        image: "images/Banhdacua/173HangKenh.jpeg"
+    },
+    {
+        id: 9,
+        title: "Bánh Đa Cua Thuỷ",
+        description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
+        location: '52 Chợ Con',
+        map: "https://www.google.com/maps/place/52+Ch%E1%BB%A3+Con,+Tr%E1%BA%A1i+Cau,+L%C3%AA+Ch%C3%A2n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.84834,106.685616,17z/data=!4m5!3m4!1s0x314a7a894b211eb7:0xd549467eed3516fe!8m2!3d20.8500178!4d106.6826705",
+        image: "images/Banhdacua/52ChoCon.jpeg"
+    },
+    {
+        id: 10,
+        title: "Bánh Mì Cay Hai Bà Trưng",
+        description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
+        location: '19 P. Hai Bà Trưng',
+        map: "https://www.google.com/maps/place/19+P.+Hai+B%C3%A0+Tr%C6%B0ng,+C%E1%BA%A7u+%C4%90%E1%BA%A5t,+L%C3%AA+Ch%C3%A2n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8500178,106.6826705,17z/data=!4m5!3m4!1s0x314a7a8c7aea0f13:0x1c09ba70e4df94c!8m2!3d20.8534798!4d106.6828213",
+        image: "images/Banhmicay/19HaiBaTrung.jpeg"
+    },
+    {
+        id: 11,
+        title: "Bánh Mì Cay Bà Già",
+        description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
+        location: '57 P. Lê Lợi',
+        map: "https://www.google.com/maps/place/57+P.+L%C3%AA+L%E1%BB%A3i,+M%C3%A1y+T%C6%A1,+Ng%C3%B4+Quy%E1%BB%81n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8591556,106.6935542,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7aec7c09a3cb:0xe7f8134c2b884426!8m2!3d20.8591556!4d106.6935542",
+        image: "images/Banhmicay/BaGia57LeLoi.jpeg"
+    },
+    {
+        id: 12,
+        title: "Bánh Mì Cay Huyền",
+        description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
+        location: '28 Đinh Tiên Hoàng',
+        map: "https://www.google.com/maps/place/28+%C4%90inh+Ti%C3%AAn+Ho%C3%A0ng,+Ho%C3%A0ng+V%C4%83n+Th%E1%BB%A5,+H%E1%BB%93ng+B%C3%A0ng,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8607947,106.6820694,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7af478d8a093:0x25cd418d0a31f53f!8m2!3d20.8607947!4d106.6820694",
+        image: "images/Banhmicay/28DinhTienHoang.jpeg"
+    },
+    {
+        id: 13,
+        title: "Bánh Mì cay Huy Hoàng - Khánh Nạp",
+        description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
+        location: '188 Hàng Kênh',
+        map: "https://www.google.com/maps/place/188+H%C3%A0ng+K%C3%AAnh,+L%C3%AA+Ch%C3%A2n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8476874,106.6855235,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7a8faa2c25eb:0xf73642760a720fea!8m2!3d20.8476874!4d106.6855235",
+        image: "images/Banhmicay/188HangKenh.jpeg"
+    },
+    {
+        id: 14,
+        title: "Bánh Mì Cay Thuỷ",
+        description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
+        location: '39 P. Lê Lợi',
+        map: "https://www.google.com/maps/place/39+P.+L%C3%AA+L%E1%BB%A3i,+M%C3%A1y+T%C6%A1,+Ng%C3%B4+Quy%E1%BB%81n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.859467,106.693948,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7aec7803865f:0x64091c1cc332437e!8m2!3d20.859467!4d106.693948",
+        image: "images/Banhmicay/39LeLoi.jpeg"
+    },
+    {
+        id: 15,
+        title: "Chè Huế",
+        description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
+        location: '24 P. Lê Lợi',
+        map: "https://www.google.com/maps/place/24+P.+L%C3%AA+L%E1%BB%A3i,+M%C3%A1y+T%C6%A1,+Ng%C3%B4+Quy%E1%BB%81n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.859467,106.693948,17z/data=!4m5!3m4!1s0x314a7aeb8a85e933:0x342201ba05a318fb!8m2!3d20.860049!4d106.694022",
+        image: "images/Che/CheHue24LeLoi.jpeg"
+    },
+    {
+        id: 16,
+        title: "Chè Quỳnh Béo",
+        description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
+        location: '100 P. Quang Trung',
+        map: "https://www.google.com/maps/place/100+P.+Quang+Trung,+Phan+B%E1%BB%99i+Ch%C3%A2u,+H%E1%BB%93ng+B%C3%A0ng,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8562439,106.6775012,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7a8abe5ef5ed:0xf32dc969b23dcff7!8m2!3d20.8562439!4d106.6775012",
+        image: "images/Che/CheQuynhBeo100QuangTrung.jpeg"
+    },
+    {
+        id: 17,
+        title: "Chè Sương Sa",
+        description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
+        location: '49 P. Trần Nhật Duật',
+        map: "https://www.google.com/maps/place/49+P.+Tr%E1%BA%A7n+Nh%E1%BA%ADt+Du%E1%BA%ADt,+C%E1%BA%A7u+%C4%90%E1%BA%A5t,+Ng%C3%B4+Quy%E1%BB%81n,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8552749,106.6834176,17z/data=!3m1!4b1!4m5!3m4!1s0x314a7a8c944ef219:0x84055a5dfe07038d!8m2!3d20.8552749!4d106.6834176",
+        image: "images/Che/CheSuongSa49TranNhatDuat.jpeg"
+    },
+    {
+        id: 18,
+        title: "Chè Thái",
+        description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
+        location: '37 Đinh Tiên Hoàng',
+        map: "https://www.google.com/maps/place/37+%C4%90inh+Ti%C3%AAn+Ho%C3%A0ng,+Ho%C3%A0ng+V%C4%83n+Th%E1%BB%A5,+H%E1%BB%93ng+B%C3%A0ng,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8552749,106.6834176,17z/data=!4m5!3m4!1s0x314a7af3890967d9:0x72a8a4e8b5750a8!8m2!3d20.860887!4d106.682389",
+        image: "images/Che/CheThai37DinhTienHoang.jpeg"
+    },
+    {
+        id: 19,
+        title: "Chè Thập Cẩm ",
+        description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
+        location: 'Cát Dài',
+        map: "https://www.google.com/maps/place/C%C3%A1t+D%C3%A0i,+L%C3%AA+Ch%C3%A2n,+Hai+Phong,+Vietnam/@20.8530369,106.6711683,16z/data=!3m1!4b1!4m5!3m4!1s0x314a7a615aa4f85b:0xe05faeacb7be2b76!8m2!3d20.853099!4d106.6711332",
+        image: "images/Che/Chethapcam.jpeg"
+    },
 ]
 
 export default Tatca

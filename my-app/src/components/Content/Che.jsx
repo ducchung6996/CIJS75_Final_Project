@@ -29,7 +29,7 @@ const Che = [
         description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
         location: '37 Đinh Tiên Hoàng',
         map: "https://www.google.com/maps/place/37+%C4%90inh+Ti%C3%AAn+Ho%C3%A0ng,+Ho%C3%A0ng+V%C4%83n+Th%E1%BB%A5,+H%E1%BB%93ng+B%C3%A0ng,+H%E1%BA%A3i+Ph%C3%B2ng,+Vietnam/@20.8552749,106.6834176,17z/data=!4m5!3m4!1s0x314a7af3890967d9:0x72a8a4e8b5750a8!8m2!3d20.860887!4d106.682389",
-        image: "images/Che/37DinhTienHoang.jpeg"
+        image: "images/Che/CheThai37DinhTienHoang.jpeg"
     },
     {
         id: 19,

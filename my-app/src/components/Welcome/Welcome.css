@@ -22,8 +22,8 @@
 }
 
 .wlc-title{
-    font-size: 36px;
-    color: #e18936; 
+    font-size: 32px;
+    color: #da9a5e; 
     font-weight: 600;
     animation: fadeinleft 1s;
 }
@@ -38,8 +38,7 @@
 .wlc-search-box{
     width: 20vw; 
     min-width: 200px;
-    height: 6vh;
-    min-height: 40px;
+    height: 50px;
     outline: none; 
     padding: 10px; 
 }
@@ -52,10 +51,9 @@
 }
 
 .wlc-search-btn{
-    height: 6vh;
-    width: 10vw;
-    min-height: 40px;
-    min-width: 60px;
+    height: 50px;
+    width: 6vw;
+    min-width: 80px;
     margin-left: 4px;
     background-color: #e18936;
     color: #fff; 

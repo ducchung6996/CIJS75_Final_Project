@@ -18,9 +18,21 @@
     transform: scale(1.06);
 }
 
-.slider-image {
+.slider-image-container {
     width: 360px;
     height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-image {
+    object-fit: cover;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.slider-image-container:hover .read-more {
+    transform: scaleY(1);
 }
 
 .slider-title {
@@ -32,19 +44,24 @@
 }
 
 .read-more {
-    background-color: #3498db;
+    background-color: rgba(0, 0, 0, 0.6);
     font-weight: bold;
     cursor: pointer;
-    width: 35%;
+    width: 100%;
     text-align: center;
     color: #fff;
     padding: 8px 16px;
     white-space: nowrap;
     transition: 0.4s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleY(0);
+    transform-origin: bottom;
 }
 
 .read-more:hover {
-    background-color: #3283b9;
+    text-decoration: underline;
 }
 
 .slider-item-description {
@@ -55,7 +72,7 @@
 }
 
 .slider-item-title {
-    font-size: 24px;
+    font-size: 20px;
     color: #e18936;
     font-weight: bold;
 }
@@ -66,20 +83,22 @@
 }
 
 .add-todo {
-    background-color: #e18936;
+    background-color: #fff;
     padding: 8px 16px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: 0.4s;
     white-space: nowrap;
-    border: none;
-    color: #fff;
-    width: 65%;
+    border: solid 1px #e18936;
+    color: #e18936;
+    width: 100%;
+    font-weight: bold;
 }
 
 .add-todo:hover {
-    background-color: #cc8441;
+    background-color: #e18936;
+    color: #fff;
 }
 
 .slider-item-location {
@@ -88,6 +107,7 @@
     align-items: center;
     gap: 5px;
     margin: 10px 0;
+    width: fit-content;
 }
 
 .slider-item-location:hover {
