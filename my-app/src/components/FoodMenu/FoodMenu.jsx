@@ -10,10 +10,6 @@ import { Link } from "react-router-dom";
 
 const FoodMenu = () => {
   const [selected, setSelected] = useState(Tatca);
-  //   const [category, setCategory] = useState("Tatca");
-  //   const handleSelected = (evt) => {
-
-  //   }
   return (
     <section id="food-menu-container">
       <div className="food-menu-nav">
