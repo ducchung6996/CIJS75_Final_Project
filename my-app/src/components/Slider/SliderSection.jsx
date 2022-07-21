@@ -4,8 +4,8 @@ import { TbMapPin } from "react-icons/tb";
 import Tatca from "../Content/Tatca";
 import React from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const SliderSection = () => {
   function createRandomFood(a) {
@@ -25,7 +25,9 @@ const SliderSection = () => {
     return result;
   }
   let recommendFood = createRandomFood(Tatca);
-  console.log(recommendFood);
+  const handleAddTodo = () => {
+    NotificationManager.success("Oke la");
+  }
   const settings = {
     className: "slider variable-width",
     centerMode: true,
@@ -63,7 +65,7 @@ const SliderSection = () => {
                     <TbMapPin /> {item.location}
                   </a>
                   <div className="more">
-                    <button className="add-todo">+ Thêm vào todo list</button>
+                    <button onClick={handleAddTodo} className="add-todo">+ Thêm vào todo list</button>
                   </div>
                 </div>
               </div>
@@ -71,7 +73,7 @@ const SliderSection = () => {
           );
         })}
       </Slider>
-      <ToastContainer/>
+      <NotificationContainer/>
     </section>
   );
 };
