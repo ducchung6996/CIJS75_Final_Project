@@ -82,7 +82,7 @@ const Signup = () => {
       pw: pw,
       userName: "",
       userAvatar: "images/DefaultUser.png",
-      todolist: [],
+      todoList: [],
       dob: "",
     };
     const userEmailProfile = {

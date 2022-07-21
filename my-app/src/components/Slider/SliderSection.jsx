@@ -1,13 +1,18 @@
-import "./Slider.css";
+import React from "react";
 import Slider from "react-slick";
+import "./Slider.css";
 import { TbMapPin } from "react-icons/tb";
 import Tatca from "../Content/Tatca";
-import React from "react";
 import { Link } from "react-router-dom";
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const SliderSection = () => {
+  const loggedUser = JSON.parse(
+    localStorage.getItem(localStorage.getItem("savedUser"))
+  );
   function createRandomFood(a) {
     let arr = [];
     for (let i = 1; i <= a.length; i++) {
@@ -25,9 +30,36 @@ const SliderSection = () => {
     return result;
   }
   let recommendFood = createRandomFood(Tatca);
-  const handleAddTodo = () => {
-    NotificationManager.success("Oke la");
-  }
+  const handleAddTodo = (a) => {
+    if (!loggedUser) {
+      MySwal.fire({
+        title: <h1>Bạn chưa đăng nhập</h1>,
+        html: <h2>Bạn cần đăng nhập tài khoản để sử dụng chức năng này</h2>,
+        confirmButtonText: "Đi tới đăng nhập",
+        confirmButtonColor: "#2980b9",
+        showDenyButton: true,
+        denyButtonText: `Hủy`,
+        denyButtonColor: "#e74c3c",
+        icon: "warning",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open("/login", "_self");
+        }
+      });
+      return;
+    }
+    const userProfile = loggedUser;
+    userProfile.todoList = [...userProfile.todoList, Tatca[a]];
+    localStorage.setItem(localStorage.getItem("savedUser"), JSON.stringify(userProfile));
+    console.log(userProfile.todoList);
+    MySwal.fire({
+      title: <h1>Done</h1>,
+      html: <h2>Đã thêm vào Todo list</h2>,
+      confirmButtonText: "Oke la",
+      confirmButtonColor: "#27ae60",
+      icon: "success",
+    });
+  };
   const settings = {
     className: "slider variable-width",
     centerMode: true,
@@ -40,6 +72,7 @@ const SliderSection = () => {
     arrows: false,
     pauseOnHover: true,
     rows: 1,
+    focusOnSelect: true,
   };
   return (
     <section id="slider">
@@ -65,7 +98,9 @@ const SliderSection = () => {
                     <TbMapPin /> {item.location}
                   </a>
                   <div className="more">
-                    <button onClick={handleAddTodo} className="add-todo">+ Thêm vào todo list</button>
+                    <button onClick={() => handleAddTodo(item.id)} className="add-todo">
+                      + Thêm vào todo list
+                    </button>
                   </div>
                 </div>
               </div>
@@ -73,7 +108,6 @@ const SliderSection = () => {
           );
         })}
       </Slider>
-      <NotificationContainer/>
     </section>
   );
 };
