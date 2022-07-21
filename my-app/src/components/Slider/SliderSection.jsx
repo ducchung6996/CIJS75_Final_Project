@@ -38,14 +38,6 @@ const SliderSection = () => {
   const [myTodoList, setMyTodoList] = useState(todoList());
   const handleAddTodo = (a) => {
     for (let item of loggedUser.todoList) {
-      if (myTodoList.length === 10) {
-        Swal.fire(
-          'Không thể thêm',
-          'Đã đạt số lượng tối đa',
-          'warning'
-        );
-        return;
-      }
       if (item.id === a) {
         MySwal.fire({
           title: <h1>Đã có trong todo list</h1>,
@@ -87,6 +79,14 @@ const SliderSection = () => {
           window.open("/login", "_self");
         }
       });
+      return;
+    }
+    if (myTodoList.length === 10) {
+      Swal.fire(
+        'Không thể thêm',
+        'Đã đạt số lượng tối đa',
+        'warning'
+      );
       return;
     }
     const userProfile = loggedUser;

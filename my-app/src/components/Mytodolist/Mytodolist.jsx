@@ -6,17 +6,21 @@ import "./Mytodolist.css";
 const Mytodolist = () => {
   const loggedUser = useContext(LoggedUser);
   const [myTodoList, setMyTodoList] = useState(loggedUser.todoList);
-  console.log(myTodoList);
+  const handleTodoStatus = (e) => {
+    const arr = myTodoList;
+    arr[e].status = !arr[e].status;
+    setMyTodoList(arr);
+  }
   return (
     <section id="mytodolist">
       <div className="todolist-container">
         <button className="save-todolist">Lưu</button>
         <div className="todo-title">MY TODO LIST</div>
-        {myTodoList.map((item) => {
+        {myTodoList.map((item, index) => {
           return (
-            <div className={`todo ${item.status && "done"}`} key={item.id}>
+            <div className={item.status === true ? "done" : "todo"} key={item.id}>
               <div className="todo-content">
-                <input type="checkbox" className="todo-status" />
+                <input type="checkbox" className="todo-status" onChange={() => handleTodoStatus(index)}/>
                 <div className="todo-image-container">
                   <img
                     className="todo-image"

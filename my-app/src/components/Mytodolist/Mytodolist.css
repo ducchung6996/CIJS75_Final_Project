@@ -86,6 +86,6 @@
     transform: translateX(6px);
 }
 
-.todo .done {
+.todo.done {
     opacity: 0.6;
 }
