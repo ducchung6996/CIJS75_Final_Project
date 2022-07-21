@@ -1,11 +1,8 @@
 #food-menu-container {
     background-color: #fff;
     padding: 20px 10vw;
-    height: fit-content;
     transition: 0.4s;
-    max-height: 1800px;
-    min-height: 700px;
-    overflow-y: auto;
+    height: fit-content;
 }
 
 .food-menu-nav {
@@ -54,8 +51,14 @@
 
 .food-menu {
     display: grid;
+    height: 100%;
     gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    overflow-y: auto;
+    max-height: 1300px;
+    min-height: fit-content;
+    animation: food-appear 0.5s;
+    padding: 10px;
 }
 
 .food-container {

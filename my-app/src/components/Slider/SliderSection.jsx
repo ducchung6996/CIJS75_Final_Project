@@ -4,17 +4,28 @@ import { TbMapPin } from "react-icons/tb";
 import Tatca from "../Content/Tatca";
 import React from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SliderSection = () => {
   function createRandomFood(a) {
     let arr = [];
-    for (let i = 0; i < 8; i++) {
-      let num = Math.floor(Math.random() * 20);
-      arr.push(a[num]);
+    for (let i = 1; i <= a.length; i++) {
+      arr.push(i);
     }
-    return arr;
+
+    let result = [];
+
+    for (let i = 1; i <= 8; i++) {
+      const random = Math.floor(Math.random() * (a.length - i));
+      result.push(a[random]);
+      arr[random] = arr[a.length - i];
+    }
+
+    return result;
   }
   let recommendFood = createRandomFood(Tatca);
+  console.log(recommendFood);
   const settings = {
     className: "slider variable-width",
     centerMode: true,
@@ -38,7 +49,9 @@ const SliderSection = () => {
               <div className="slider-item-container">
                 <div className="slider-image-container">
                   <img className="slider-image" src={item.image} alt={index} />
-                  <Link className="read-more" to={`/${item.id}`}>Xem chi tiết ►</Link>
+                  <Link className="read-more" to={`/${item.id}`}>
+                    Xem chi tiết ►
+                  </Link>
                 </div>
                 <div className="slider-item-description">
                   <h1 className="slider-item-title">{item.title}</h1>
@@ -58,6 +71,7 @@ const SliderSection = () => {
           );
         })}
       </Slider>
+      <ToastContainer/>
     </section>
   );
 };

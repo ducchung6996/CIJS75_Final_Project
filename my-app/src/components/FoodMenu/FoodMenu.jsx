@@ -7,9 +7,12 @@ import Che from "../Content/Che";
 import Tatca from "../Content/Tatca";
 import { TbMapPin } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { LoggedUser } from "../../index";
+import { useContext } from "react";
 
 const FoodMenu = () => {
   const [selected, setSelected] = useState(Tatca);
+  const loggedUser = useContext(LoggedUser);
   return (
     <section id="food-menu-container">
       <div className="food-menu-nav">
