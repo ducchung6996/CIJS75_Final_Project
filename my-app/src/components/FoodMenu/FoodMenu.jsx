@@ -7,12 +7,9 @@ import Che from "../Content/Che";
 import Tatca from "../Content/Tatca";
 import { TbMapPin } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import { LoggedUser } from "../../index";
-import { useContext } from "react";
 
-const FoodMenu = () => {
+const FoodMenu = ({myTodoList, handleAddTodo}) => {
   const [selected, setSelected] = useState(Tatca);
-  const loggedUser = useContext(LoggedUser);
   return (
     <section id="food-menu-container">
       <div className="food-menu-nav">
@@ -55,7 +52,7 @@ const FoodMenu = () => {
         </div>
       </div>
       <div className="food-menu">
-        {selected.map((item, index) => {
+        {selected.map((item) => {
           return (
             <div className="food-container" key={item.id}>
               <div className="food">
@@ -65,14 +62,25 @@ const FoodMenu = () => {
                     src={item.image}
                     alt={item.title}
                   />
-                  <Link className="read-more" to={`/${item.id}`}>Xem chi tiết ►</Link>
+                  <Link className="read-more" to={`/${item.id}`}>
+                    Xem chi tiết ►
+                  </Link>
                 </div>
                 <dir className="food-description">
                   <h1 className="food-title">{item.title}</h1>
                   <a href={item.map} target="blank" className="food-location">
                     <TbMapPin /> {item.location}
                   </a>
-                  <button className="add-todo">+ Thêm vào todo list</button>
+                  <button
+                    onClick={() => handleAddTodo(item.id)}
+                    className={myTodoList.includes(item.id)
+                      ? "remove-todo"
+                      : "add-todo"}
+                  >
+                    {myTodoList.includes(item.id)
+                      ? "Đã có trong todo list"
+                      : "+ Thêm vào todo list"}
+                  </button>
                 </dir>
               </div>
             </div>

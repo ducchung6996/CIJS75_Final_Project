@@ -15,7 +15,7 @@
 }
 
 .slider-item-container:hover {
-    transform: scale(1.06);
+    transform: scale(1.04);
 }
 
 .slider-image-container {
@@ -99,6 +99,24 @@
 .add-todo:hover {
     background-color: #e18936;
     color: #fff;
+}
+
+.remove-todo {
+    background-color: #16a085;
+    padding: 8px 16px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.4s;
+    white-space: nowrap;
+    border: solid 1px #16a085;
+    color: #fff;
+    width: 100%;
+    font-weight: bold;
+}
+
+.remove-todo:hover {
+    background-color: #126857;
 }
 
 .slider-item-location {

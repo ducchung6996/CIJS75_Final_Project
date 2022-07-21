@@ -14,6 +14,7 @@ import ChangeUserProfile from "./components/Userprofile/ChangeUserProfile";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/Header/ScrollToTop";
 import FoodDetail from "./components/FoodDetail/FoodDetail";
+import Mytodolist from "./components/Mytodolist/Mytodolist";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const loggedUser = JSON.parse(localStorage.getItem(localStorage.getItem("savedUser")));
@@ -27,13 +28,14 @@ root.render(
         <Routes>
           <Route path="/" element={<App />}/>
           <Route path=":foodid" element={<FoodDetail/>}/>
-          <Route path="login" element={<Login/>}/>
-          <Route path="signup" element={<Signup/>}/>
-          <Route path="pwforgot" element={<PwForgot/>}/>
+          {!loggedUser && <Route path="login" element={<Login/>}/>}
+          {!loggedUser && <Route path="signup" element={<Signup/>}/>}
+          {!loggedUser && <Route path="pwforgot" element={<PwForgot/>}/>}
           {loggedUser && <Route path="changepw" element={<ChangePw/>}/>}
           {loggedUser && <Route path="changeemail" element={<ChangeEmail/>}/>}
           {loggedUser && <Route path="changeuserprofile" element={<ChangeUserProfile/>}/>}
           {loggedUser && <Route path="userprofile" element={<Userprofile/>}/>}
+          {loggedUser && <Route path="mytodolist" element={<Mytodolist/>}/>}
         </Routes>
         <Footer/>
       </LoggedUser.Provider>

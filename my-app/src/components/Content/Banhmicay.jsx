@@ -1,6 +1,7 @@
 const Banhmicay = [
     {
         id: 10,
+        status: false,
         title: "Bánh Mì Cay Hai Bà Trưng",
         description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
         location: '19 P. Hai Bà Trưng',
@@ -9,6 +10,7 @@ const Banhmicay = [
     },
     {
         id: 11,
+        status: false,
         title: "Bánh Mì Cay Bà Già",
         description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
         location: '57 P. Lê Lợi',
@@ -17,6 +19,7 @@ const Banhmicay = [
     },
     {
         id: 12,
+        status: false,
         title: "Bánh Mì Cay Huyền",
         description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
         location: '28 Đinh Tiên Hoàng',
@@ -25,6 +28,7 @@ const Banhmicay = [
     },
     {
         id: 13,
+        status: false,
         title: "Bánh Mì cay Huy Hoàng - Khánh Nạp",
         description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
         location: '188 Hàng Kênh',
@@ -33,6 +37,7 @@ const Banhmicay = [
     },
     {
         id: 14,
+        status: false,
         title: "Bánh Mì Cay Thuỷ",
         description: "Phong trào bánh mì que cay ở Hải Phòng nghe nói có nguồn gốc từ ngõ Khánh Lạp, gần Hàng Kênh. Từ một món ăn dân dã, giờ đây bánh mì que đã trở thành “ngôi sao” giúp người dân đất cảng “nở mày nở mặt” với các du khách thập phương.",
         location: '39 P. Lê Lợi',

@@ -1,6 +1,7 @@
 const Che = [
     {
         id: 15,
+        status: false,
         title: "Chè Huế",
         description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
         location: '24 P. Lê Lợi',
@@ -9,6 +10,7 @@ const Che = [
     },
     {
         id: 16,
+        status: false,
         title: "Chè Quỳnh Béo",
         description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
         location: '100 P. Quang Trung',
@@ -17,6 +19,7 @@ const Che = [
     },
     {
         id: 17,
+        status: false,
         title: "Chè Sương Sa",
         description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
         location: '49 P. Trần Nhật Duật',
@@ -25,6 +28,7 @@ const Che = [
     },
     {
         id: 18,
+        status: false,
         title: "Chè Thái",
         description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
         location: '37 Đinh Tiên Hoàng',
@@ -33,6 +37,7 @@ const Che = [
     },
     {
         id: 19,
+        status: false,
         title: "Chè Thập Cẩm ",
         description: "Ở Hải Phòng phổ biến đa dạng các loại chè từ các vùng miền trên cả nước. Tuy nhiên, chè Hải Phòng được biến tấu vị theo khẩu vị của người dân nơi đây nên đã đến Hải Phòng thì khồn thể bỏ qua món chè.",
         location: 'Cát Dài',

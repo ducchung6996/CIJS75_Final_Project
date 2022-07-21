@@ -12,7 +12,6 @@ const App = () => {
     <>
       <Welcome />
       <SliderSection />
-      <FoodMenu/>
       <Outlet />
     </>
   );

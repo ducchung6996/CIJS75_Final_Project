@@ -1,6 +1,7 @@
 const Banhdacua = [
     {
         id: 5,
+        status: false,
         title: "Bánh Đa Cua Cô Yến",
         description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
         location: '2B P. Phạm Ngũ Lão',
@@ -9,6 +10,7 @@ const Banhdacua = [
     },
     {
         id: 6,
+        status: false,
         title: "Bánh Đa Cua Lạch Tray",
         description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
         location: '48 Lạch Tray',
@@ -17,6 +19,7 @@ const Banhdacua = [
     },
     {
         id: 7,
+        status: false,
         title: "Bánh Đa Cua Cầu Đất",
         description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
         location: '195 P. Cầu Đất',
@@ -25,6 +28,7 @@ const Banhdacua = [
     },
     {
         id: 8,
+        status: false,
         title: "Bánh Đa Cua Cô Cẩm",
         description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
         location: '173 Hàng Kênh',
@@ -33,6 +37,7 @@ const Banhdacua = [
     },
     {
         id: 9,
+        status: false,
         title: "Bánh Đa Cua Thuỷ",
         description: "Bánh đa cua - món đặc sản Hải Phòng ngon trứ danh. Món ăn mang đậm hương vị đất cảng với vị cay cay, nóng hổi sẽ khiến mọi thành viên trong gia đình vô cùng thích thú.",
         location: '52 Chợ Con',

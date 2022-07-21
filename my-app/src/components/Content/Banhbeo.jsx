@@ -1,6 +1,7 @@
 const Banhbeo = [
     {
         id: 0,
+        status: false,
         title: "Bánh Bèo Lê Đại Hành",
         description: "Bánh bèo là một trong những đặc sản nổi tiếng của Hải Phòng. Nguyên liệu gồm có: bột gạo lọc, bột gạo tẻ, thịt heo xay, mỡ heo, nấm mèo, hành tím, hành lá,...",
         location: '41 P. Lê Đại Hành',
@@ -9,6 +10,7 @@ const Banhbeo = [
     },
     {
         id: 1,
+        status: false,
         title: "Bánh Bèo Nguyễn Bình",
         description: "Bánh bèo là một trong những đặc sản nổi tiếng của Hải Phòng. Nguyên liệu gồm có: bột gạo lọc, bột gạo tẻ, thịt heo xay, mỡ heo, nấm mèo, hành tím, hành lá,...",
         location: '10 Đường Nguyễn Bình',
@@ -17,6 +19,7 @@ const Banhbeo = [
     },
     {
         id: 2,
+        status: false,
         title: "Bánh Bèo Lãn Ông",
         description: "Bánh bèo là một trong những đặc sản nổi tiếng của Hải Phòng. Nguyên liệu gồm có: bột gạo lọc, bột gạo tẻ, thịt heo xay, mỡ heo, nấm mèo, hành tím, hành lá,...",
         location: '22 P. Lãn Ông',
@@ -25,6 +28,7 @@ const Banhbeo = [
     },
     {
         id: 3,
+        status: false,
         title: "Bánh Bèo Cầu Đất",
         description: "Bánh bèo là một trong những đặc sản nổi tiếng của Hải Phòng. Nguyên liệu gồm có: bột gạo lọc, bột gạo tẻ, thịt heo xay, mỡ heo, nấm mèo, hành tím, hành lá,...",
         location: '82 P. Cầu Đất',
@@ -33,6 +37,7 @@ const Banhbeo = [
     },
     {
         id: 4,
+        status: false,
         title: "Bánh Bèo Ngõ Đồng Tâm",
         description: "Bánh bèo là một trong những đặc sản nổi tiếng của Hải Phòng. Nguyên liệu gồm có: bột gạo lọc, bột gạo tẻ, thịt heo xay, mỡ heo, nấm mèo, hành tím, hành lá,...",
         location: 'Đồng Tâm, 12 Phương Lưu',

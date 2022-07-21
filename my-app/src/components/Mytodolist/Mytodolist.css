@@ -1,0 +1,91 @@
+#mytodolist {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 200px;
+}
+
+.todolist-container {
+    width: 50%;
+    min-width: 300px;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #fff;
+    border: 1px solid #e18936;
+    position: relative;
+}
+
+.save-todolist {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.todo-title {
+    color: #e18936;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+.todo {
+    width: 90%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    background-color: #e18936;
+    padding: 0 20px;
+    transition: 0.4s;
+}
+
+.todo-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.todo-status {
+    width: 36px;
+    height: 36px;
+}
+
+.todo-image-container {
+    width: 160px;
+    height: 90px;
+    overflow: hidden;
+}
+
+.todo-image {
+    object-fit: cover;
+    max-width: 100%;
+    vertical-align: middle;
+
+}
+
+.todo-food-title {
+    font-size: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.todo-read-more {
+    color: #fff;
+    transition: 0.5s;
+}
+
+.todo-read-more:hover {
+    transform: translateX(6px);
+}
+
+.todo .done {
+    opacity: 0.6;
+}

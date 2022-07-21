@@ -91,7 +91,7 @@ const Header = () => {
             </span>
             <div className="user-submenu">
               <Link to="userprofile">Thông tin người dùng</Link>
-              <Link to="todolist">My todo list</Link>
+              <Link to="mytodolist">My todo list</Link>
               <button onClick={handleLogout}>
                 Đăng xuất <TbLogout />
               </button>
