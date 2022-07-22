@@ -4,11 +4,11 @@ import "./Slider.css";
 import { TbMapPin } from "react-icons/tb";
 import Tatca from "../Content/Tatca";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 import { LoggedUser } from "../../index";
 import { useContext, useState } from "react";
 import FoodMenu from '../FoodMenu/FoodMenu';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 

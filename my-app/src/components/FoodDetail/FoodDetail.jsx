@@ -104,6 +104,7 @@ const FoodDetail = () => {
         </div>
         <p className="food-detail-description">{seletedFood.description}</p>
         <iframe
+          title="map"
           className="food-detail-location"
           src={seletedFood.src}
           referrerPolicy="no-referrer-when-downgrade"

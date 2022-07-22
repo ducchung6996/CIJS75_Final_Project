@@ -4,7 +4,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 200px;
+    padding: 10vh 0;
+}
+
+@keyframes todolist {
+    from {opacity: 0; transform: translateX(200px);};
+    to {opacity: 1; transform: translateX(0);};
 }
 
 .todolist-container {
@@ -19,13 +24,60 @@
     gap: 20px;
     background-color: #fff;
     border: 1px solid #e18936;
-    position: relative;
+    animation: todolist 0.5s ease-in-out;
+}
+
+.save-undo {
+    position: fixed;
+    left: 50%;
+    bottom: 10%;
+    padding: 10px;
+    background-color: #fff;
+    border: solid 2px #34495e;
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+    transform: translate(-50%, 0);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.save-undo.active {
+    opacity: 1;
 }
 
 .save-todolist {
-    position: absolute;
     top: 20px;
     right: 20px;
+    background-color: #fff;
+    color: #16a085;
+    border: 2px solid #16a085;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+    font-weight: bold;
+}
+
+.save-todolist:hover {
+    background-color: #16a085;
+    color: #fff;
+}
+
+.undo-todolist {
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    color: #2980b9;
+    border: 2px solid #2980b9;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+    font-weight: bold;
+}
+
+.undo-todolist:hover {
+    background-color: #2980b9;
+    color: #fff;
 }
 
 .todo-title {
@@ -45,6 +97,12 @@
     background-color: #e18936;
     padding: 0 20px;
     transition: 0.4s;
+    position: relative;
+}
+
+.todo:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 5px 3px rgba(71, 71, 71, 0.75);
 }
 
 .todo-content {
@@ -77,9 +135,14 @@
     white-space: nowrap;
 }
 
+.todo-food-title.done {
+    text-decoration: line-through;
+}
+
 .todo-read-more {
     color: #fff;
     transition: 0.5s;
+    margin-right: 20px;
 }
 
 .todo-read-more:hover {
@@ -88,4 +151,13 @@
 
 .todo.done {
     opacity: 0.6;
+}
+
+.delete-todo {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
