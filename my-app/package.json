@@ -1,5 +1,5 @@
 {
-  "homepage": "http://ducchung6996.github.io/CIJS75_Final_Project",
+  "homepage": "http://ducchung6996.github.io/CIJS75_Final_Project/",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predploy": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
