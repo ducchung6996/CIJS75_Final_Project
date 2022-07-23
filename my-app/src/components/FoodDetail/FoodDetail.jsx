@@ -13,6 +13,9 @@ const FoodDetail = () => {
   const loggedUser = useContext(LoggedUser);
   const todoList = () => {
     let addedTodoList = [];
+    if (!loggedUser) {
+      return;
+    }
     for (let item of loggedUser.todoList) {
       addedTodoList.push(item.id);
     }

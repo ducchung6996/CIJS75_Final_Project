@@ -27,7 +27,10 @@ root.render(
         <ScrollToTop/>
         <Routes>
           <Route path="/" element={<App />}/>
-          <Route path=":foodid" element={<FoodDetail/>}/>
+          <Route path="/fooddetail" element={<FoodDetail/>}>
+            <Route path=":foodid" element={<FoodDetail/>}/>
+            <Route index element={<FoodDetail/>}/>
+          </Route>
           {!loggedUser && <Route path="login" element={<Login/>}/>}
           {!loggedUser && <Route path="signup" element={<Signup/>}/>}
           {!loggedUser && <Route path="pwforgot" element={<PwForgot/>}/>}

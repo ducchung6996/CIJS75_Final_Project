@@ -133,7 +133,7 @@ const SliderSection = () => {
                       src={item.image}
                       alt={index}
                     />
-                    <Link className="read-more" to={`/${item.id}`}>
+                    <Link className="read-more" to={`/fooddetail/${item.id}`}>
                       Xem chi tiết ►
                     </Link>
                   </div>

@@ -123,7 +123,7 @@ const FoodMenu = ({ myTodoList, handleAddTodo }) => {
                     src={item.image}
                     alt={item.title}
                   />
-                  <Link className="read-more" to={`/${item.id}`}>
+                  <Link className="read-more" to={`/fooddetail/${item.id}`}>
                     Xem chi tiết ►
                   </Link>
                 </div>

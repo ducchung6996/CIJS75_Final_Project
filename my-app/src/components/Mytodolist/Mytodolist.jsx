@@ -143,7 +143,7 @@ const Mytodolist = () => {
                               {item.title}
                             </div>
                           </div>
-                          <Link className="todo-read-more" to={`/${item.id}`}>
+                          <Link className="todo-read-more" to={`/fooddetail/${item.id}`}>
                             Xem chi tiết ►
                           </Link>
                           <button
