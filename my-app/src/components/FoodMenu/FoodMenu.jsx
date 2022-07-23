@@ -80,7 +80,7 @@ const FoodMenu = ({ myTodoList, handleAddTodo }) => {
         </div>
       </div>
       <div className="food-menu">
-        {JSON.stringify(searchResult) !== '[]' ? (searchResult.map((item) => {
+        {keyword !== "" ? JSON.stringify(searchResult) === '[]' ? <p className="no-result">Không có kết quả</p> : (searchResult.map((item) => {
           return (
             <div className="food-container" key={item.id}>
               <div className="food">

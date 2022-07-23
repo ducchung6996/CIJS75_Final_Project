@@ -66,16 +66,16 @@ const Header = () => {
           <img className="logo" src="images/logo.png" alt="Home" />
         </Link>
         <nav className="header-nav">
-          <Link to="about">About</Link>
+          <Link to="about">Giới thiệu chung</Link>
           <Link to="foodtour">Foodtour</Link>
-          <Link to="contacts">Contacts</Link>
+          <Link to="contacts">Liên hệ</Link>
           <div className={`login-signup-btn ${!user && "active"}`}>
             <Link to="login">
-              Login <RiLoginBoxLine />
+              Đăng nhập <RiLoginBoxLine />
             </Link>
-            <p>Or</p>
+            <p>hoặc</p>
             <Link to="signup">
-              Signup <HiOutlinePencil />
+              Đăng ký <HiOutlinePencil />
             </Link>
           </div>
           <div className={`user-menu ${user && "active"}`}>
