@@ -63,7 +63,7 @@ const Header = () => {
         style={{ backgroundColor: scrollBarPosition > 100 ? "#2c3e50" : null }}
       >
         <Link to="/">
-          <img className="logo" src="images/logo.png" alt="Home" />
+          <img className="logo" src="/images/logo.png" alt="Home" />
         </Link>
         <nav className="header-nav">
           <Link to="about">Giới thiệu chung</Link>
