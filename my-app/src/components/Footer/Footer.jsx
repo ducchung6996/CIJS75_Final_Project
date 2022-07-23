@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div id="footer">
+      <img className="footer-logo" src="/images/logo.png" alt="Home" />
       <div className="footer-social-icons">
         <img src="/images/fb.png" alt="Facebook" />
         <img src="/images/ins.png" alt="Instagram" />

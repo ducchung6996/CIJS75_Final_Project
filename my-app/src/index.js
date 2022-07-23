@@ -15,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/Header/ScrollToTop";
 import FoodDetail from "./components/FoodDetail/FoodDetail";
 import Mytodolist from "./components/Mytodolist/Mytodolist";
+import NotFound from "./components/NotFound/NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const loggedUser = JSON.parse(localStorage.getItem(localStorage.getItem("savedUser")));
@@ -36,6 +37,7 @@ root.render(
           {loggedUser && <Route path="changeuserprofile" element={<ChangeUserProfile/>}/>}
           {loggedUser && <Route path="userprofile" element={<Userprofile/>}/>}
           {loggedUser && <Route path="mytodolist" element={<Mytodolist/>}/>}
+          <Route path='*' element={<NotFound />}/>
         </Routes>
         <Footer/>
       </LoggedUser.Provider>

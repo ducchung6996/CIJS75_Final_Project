@@ -56,7 +56,7 @@ const Welcome = () => {
                     <Link
                       className="search-result"
                       key={item.id}
-                      to={`/${item.id}`}
+                      to={`/fooddetail/${item.id}`}
                     >
                       {item.title}
                     </Link>
