@@ -8,6 +8,7 @@ const Welcome = () => {
   const [keyword, setKeyWord] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [searching, setSearching] = useState(false);
+  const [result, setResult] = useState(false);
   useEffect(() => {
     let arr = [];
     if (keyword === "") {
@@ -17,25 +18,29 @@ const Welcome = () => {
     for (let item of Tatca) {
       if (
         item.title
-          .toLocaleLowerCase().replaceAll(" ", "")
+          .toLocaleLowerCase()
+          .replaceAll(" ", "")
           .includes(keyword.toLocaleLowerCase())
       ) {
         arr = [...arr, item];
       }
     }
     setSearchResult([...arr]);
-    console.log(arr);
   }, [keyword]);
   const handleSearch = (e) => {
     setKeyWord(e.target.value.replaceAll(" ", ""));
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setResult(true);
+  }
   return (
     <div>
       <section id="welcome">
         <div className="search-container">
           <div className="wlc-title">Hải Phòng Là Không Lòng Vòng</div>
           <div className="wlc-subtitle">Tìm tên cửa hàng, tên món ăn</div>
-          <div className="wlc-search-bar">
+          <form onSubmit={handleSubmit} className="wlc-search-bar">
             <input
               onFocus={() => setSearching(true)}
               onBlur={() => setSearching(false)}
@@ -44,14 +49,19 @@ const Welcome = () => {
               type="text"
               placeholder="Hôm nay bạn ăn gì?"
             />
-            <button className="wlc-search-btn">
+            <button
+              type="submit"
+              className="wlc-search-btn"
+            >
               Tìm <BiSearchAlt />
             </button>
             <div className={`search-result-container ${searching && "active"}`}>
-              {keyword === "" ? 
+              {keyword === "" ? (
                 <p className="no-result">Tìm kiếm...</p>
-               :
-               JSON.stringify(searchResult) === "[]" ? <p className="no-result">Không có kết quả</p> : searchResult.map((item) => {
+              ) : JSON.stringify(searchResult) === "[]" ? (
+                <p className="no-result">Không có kết quả</p>
+              ) : (
+                searchResult.map((item) => {
                   return (
                     <Link
                       className="search-result"
@@ -62,7 +72,39 @@ const Welcome = () => {
                     </Link>
                   );
                 })
-              }
+              )}
+            </div>
+          </form>
+        </div>
+        <div className={`searched-result-container ${result ? "active" : ""}`}>
+          <div className="searched-results">
+            <button
+              onClick={() => setResult(false)}
+              className="searched-results-close"
+              type="button"
+            >
+              Đóng
+            </button>
+            <h1 className="searched-results-title">Kết quả tìm kiếm</h1>
+            <div className="results-container">
+              {searchResult.map((item) => {
+                return (
+                  <Link
+                    key={item.id}
+                    to={`/fooddetail/${item.id}`}
+                    className="searched-result"
+                  >
+                    <div className="todo-image-container">
+                      <img
+                        className="todo-image"
+                        src={item.image}
+                        alt={item.title}
+                      />
+                    </div>
+                    <h1 className="searched-result-title">{item.title}</h1>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
