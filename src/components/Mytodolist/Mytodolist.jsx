@@ -6,7 +6,6 @@ import { FaRegSave } from "react-icons/fa";
 import { AiOutlineUndo } from "react-icons/ai";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 const MySwal = withReactContent(Swal);
 
@@ -80,89 +79,71 @@ const Mytodolist = () => {
     });
   };
   return (
-    <DragDropContext onDragEnd={() => {}}>
-      <section id="mytodolist">
-        <Droppable droppableId="TodoList">
-          {(provider) => (
-            <div
-              className="todolist-container"
-              ref={provider.innerRef}
-              {...provider.droppableProps}
-            >
+    <section id="mytodolist">
+      <div
+        className="todolist-container"
+      >
+        <div
+          className={`save-undo ${
+            JSON.stringify(myTodoList) !== JSON.stringify(loggedUser.todoList)
+              ? "active"
+              : ""
+          }`}
+        >
+          <button onClick={handleSaveTodo} className="save-todolist">
+            <FaRegSave size={30} />
+          </button>
+          <button onClick={handleUndoTodo} className="undo-todolist">
+            <AiOutlineUndo size={30} />
+          </button>
+        </div>
+        <div className="todo-title">MY TODO LIST</div>
+        {JSON.stringify(myTodoList) === "[]" ? (
+          <p>Hmmmm chưa có gì cả @@</p>
+        ) : (
+          myTodoList.map((item, index) => {
+            return (
               <div
-                className={`save-undo ${
-                  JSON.stringify(myTodoList) !==
-                  JSON.stringify(loggedUser.todoList)
-                    ? "active"
-                    : ""
-                }`}
+                className={`todo ${item.status === true ? "done" : ""}`}
+                key={item.id}
               >
-                <button onClick={handleSaveTodo} className="save-todolist">
-                  <FaRegSave size={30} />
-                </button>
-                <button onClick={handleUndoTodo} className="undo-todolist">
-                  <AiOutlineUndo size={30} />
+                <div className="todo-content">
+                  <input
+                    checked={item.status}
+                    type="checkbox"
+                    className="todo-status"
+                    onChange={() => handleTodoStatus(index)}
+                  />
+                  <div className="todo-image-container">
+                    <img
+                      className="todo-image"
+                      src={item.image}
+                      alt={item.title}
+                    />
+                  </div>
+                  <div
+                    className={`todo-food-title ${
+                      item.status === true ? "done" : ""
+                    }`}
+                  >
+                    {item.title}
+                  </div>
+                </div>
+                <Link className="todo-read-more" to={`/fooddetail/${item.id}`}>
+                  Xem chi tiết ►
+                </Link>
+                <button
+                  onClick={() => handleDeleteTodo(item.id)}
+                  className="delete-todo"
+                >
+                  <RiDeleteBin6Line size={20} />
                 </button>
               </div>
-              <div className="todo-title">MY TODO LIST</div>
-              {JSON.stringify(myTodoList) === "[]" ? (
-                <p>Hmmmm chưa có gì cả @@</p>
-              ) : (
-                myTodoList.map((item, index) => {
-                  return (
-                    <Draggable draggableId={item.id.toString()} index={index}>
-                      {(provider) => (
-                        <div
-                          className={`todo ${
-                            item.status === true ? "done" : ""
-                          }`}
-                          key={item.id}
-                          {...provider.draggableProps}
-                          {...provider.dragHandleProps}
-                          ref={provider.innerRef}
-                        >
-                          <div className="todo-content">
-                            <input
-                              checked={item.status}
-                              type="checkbox"
-                              className="todo-status"
-                              onChange={() => handleTodoStatus(index)}
-                            />
-                            <div className="todo-image-container">
-                              <img
-                                className="todo-image"
-                                src={item.image}
-                                alt={item.title}
-                              />
-                            </div>
-                            <div
-                              className={`todo-food-title ${
-                                item.status === true ? "done" : ""
-                              }`}
-                            >
-                              {item.title}
-                            </div>
-                          </div>
-                          <Link className="todo-read-more" to={`/fooddetail/${item.id}`}>
-                            Xem chi tiết ►
-                          </Link>
-                          <button
-                            onClick={() => handleDeleteTodo(item.id)}
-                            className="delete-todo"
-                          >
-                            <RiDeleteBin6Line size={20} />
-                          </button>
-                        </div>
-                      )}
-                    </Draggable>
-                  );
-                })
-              )}
-            </div>
-          )}
-        </Droppable>
-      </section>
-    </DragDropContext>
+            );
+          })
+        )}
+      </div>
+    </section>
   );
 };
 
