@@ -16,30 +16,41 @@ import ScrollToTop from "./components/Header/ScrollToTop";
 import FoodDetail from "./components/FoodDetail/FoodDetail";
 import Mytodolist from "./components/Mytodolist/Mytodolist";
 import NotFound from "./components/NotFound/NotFound";
+import Home from "./components/Home/Home"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const loggedUser = JSON.parse(localStorage.getItem(localStorage.getItem("savedUser")));
+const loggedUser = JSON.parse(
+  localStorage.getItem(localStorage.getItem("savedUser"))
+);
 export const LoggedUser = createContext();
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <LoggedUser.Provider value={loggedUser}>
-        <Header/>
-        <ScrollToTop/>
+        <Header />
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<App />}/>
-          <Route path="/fooddetail/:foodid" element={<FoodDetail/>}/>
-          {!loggedUser && <Route path="login" element={<Login/>}/>}
-          {!loggedUser && <Route path="signup" element={<Signup/>}/>}
-          {!loggedUser && <Route path="pwforgot" element={<PwForgot/>}/>}
-          {loggedUser && <Route path="changepw" element={<ChangePw/>}/>}
-          {loggedUser && <Route path="changeemail" element={<ChangeEmail/>}/>}
-          {loggedUser && <Route path="changeuserprofile" element={<ChangeUserProfile/>}/>}
-          {loggedUser && <Route path="userprofile" element={<Userprofile/>}/>}
-          {loggedUser && <Route path="mytodolist" element={<Mytodolist/>}/>}
-          <Route path='*' element={<NotFound />}/>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home/>}/>
+            <Route path="/fooddetail/:foodid" element={<FoodDetail />} />
+            {!loggedUser && <Route path="login" element={<Login />} />}
+            {!loggedUser && <Route path="signup" element={<Signup />} />}
+            {!loggedUser && <Route path="pwforgot" element={<PwForgot />} />}
+            {loggedUser && <Route path="changepw" element={<ChangePw />} />}
+            {loggedUser && (
+              <Route path="changeemail" element={<ChangeEmail />} />
+            )}
+            {loggedUser && (
+              <Route path="changeuserprofile" element={<ChangeUserProfile />} />
+            )}
+            {loggedUser && (
+              <Route path="userprofile" element={<Userprofile />} />
+            )}
+            {loggedUser && <Route path="mytodolist" element={<Mytodolist />} />}
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
-        <Footer/>
+        <Footer />
       </LoggedUser.Provider>
     </BrowserRouter>
   </React.StrictMode>

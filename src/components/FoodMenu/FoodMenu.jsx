@@ -12,7 +12,6 @@ const FoodMenu = ({ myTodoList, handleAddTodo }) => {
   const [selected, setSelected] = useState(Tatca);
   const [keyword, setKeyWord] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-  const [searching, setSearching] = useState(false);
   useEffect(() => {
     let arr = [];
     if (keyword === "") {
@@ -39,8 +38,6 @@ const FoodMenu = ({ myTodoList, handleAddTodo }) => {
     <section id="food-menu-container">
       <div className="food-menu-nav">
         <input
-          onFocus={() => setSearching(true)}
-          onBlur={() => setSearching(false)}
           onChange={handleSearch}
           className="food-menu-searchbar"
           placeholder="Tìm kiếm..."
