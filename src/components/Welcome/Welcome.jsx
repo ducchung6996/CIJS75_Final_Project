@@ -10,6 +10,19 @@ const Welcome = () => {
   const [searching, setSearching] = useState(false);
   const [result, setResult] = useState(false);
   useEffect(() => {
+    let searchedResults = document.getElementById("searched-result-container");
+    const handleCloseSearchedResult = function(e) {
+      if (e.target === searchedResults) {
+        setResult(false);
+      }
+    };
+    document.addEventListener("click", handleCloseSearchedResult);
+    return () => {
+      document.removeEventListener("click", handleCloseSearchedResult);
+    };
+  });
+
+  useEffect(() => {
     let arr = [];
     if (keyword === "") {
       setSearchResult([...arr]);
@@ -32,8 +45,11 @@ const Welcome = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (JSON.stringify(searchResult) === "[]") {
+      return;
+    }
     setResult(true);
-  }
+  };
   return (
     <div>
       <section id="welcome">
@@ -49,10 +65,7 @@ const Welcome = () => {
               type="text"
               placeholder="Hôm nay bạn ăn gì?"
             />
-            <button
-              type="submit"
-              className="wlc-search-btn"
-            >
+            <button type="submit" className="wlc-search-btn">
               Tìm <BiSearchAlt />
             </button>
             <div className={`search-result-container ${searching && "active"}`}>
@@ -76,7 +89,7 @@ const Welcome = () => {
             </div>
           </form>
         </div>
-        <div className={`searched-result-container ${result ? "active" : ""}`}>
+        <div id="searched-result-container" className={result ? "active" : ""}>
           <div className="searched-results">
             <button
               onClick={() => setResult(false)}

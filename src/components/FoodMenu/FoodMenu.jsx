@@ -29,7 +29,6 @@ const FoodMenu = ({ myTodoList, handleAddTodo }) => {
       }
     }
     setSearchResult([...arr]);
-    console.log(arr);
   }, [keyword]);
   const handleSearch = (e) => {
     setKeyWord(e.target.value.replaceAll(" ", ""));
