@@ -11,9 +11,8 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
 const Header = () => {
-  const [user, setUser] = useState(localStorage.getItem("savedUser"));
   const [loggedUser, setLoggedUser] = useState(
-    JSON.parse(localStorage.getItem(user))
+    JSON.parse(localStorage.getItem(localStorage.getItem("savedUser")))
   );
   const [scrollBarPosition, setScrollBarPosition] = useState(0);
   document.addEventListener("scroll", () =>
@@ -44,12 +43,10 @@ const Header = () => {
           if (result.isConfirmed) {
             localStorage.removeItem("savedUser");
             window.open(process.env.PUBLIC_URL + "/", "_self");
-            setUser(null);
             setLoggedUser(null);
           } else {
             localStorage.removeItem("savedUser");
             window.open(process.env.PUBLIC_URL + "/", "_self");
-            setUser(null);
             setLoggedUser(null);
           }
         });
@@ -69,7 +66,7 @@ const Header = () => {
           <Link to="about">Giới thiệu chung</Link>
           <Link to="foodtour">Foodtour</Link>
           <Link to="contacts">Liên hệ</Link>
-          <div className={`login-signup-btn ${!user && "active"}`}>
+          <div className={`login-signup-btn ${!loggedUser && "active"}`}>
             <Link to="login">
               Đăng nhập <RiLoginBoxLine />
             </Link>
@@ -78,13 +75,12 @@ const Header = () => {
               Đăng ký <HiOutlinePencil />
             </Link>
           </div>
-          <div className={`user-menu ${user && "active"}`}>
-            Chào mừng <strong>{user}</strong>
+          <div className={`user-menu ${loggedUser && "active"}`}>
+            Chào mừng <strong>{loggedUser && localStorage.getItem("savedUser")}</strong>
             <span className="user-btn-avatar-container">
               <img
                 src={
-                  loggedUser ? loggedUser.userAvatar : "images/DefaultUser.png"
-                }
+                  loggedUser && loggedUser.userAvatar}
                 className="user-btn-avatar"
                 alt="avatar"
               />
