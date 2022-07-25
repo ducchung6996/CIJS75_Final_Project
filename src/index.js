@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Login from "./components/Login-Signup-PwForgot/Login";
 import Signup from "./components/Login-Signup-PwForgot/Signup";
@@ -25,16 +25,16 @@ const loggedUser = JSON.parse(
 export const LoggedUser = createContext();
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <LoggedUser.Provider value={loggedUser}>
         <Header />
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path={process.env.PUBLIC_URL + '/'} element={<App />}>
             <Route index element={<Home/>}/>
-            <Route path="/fooddetail/:foodid" element={<FoodDetail />} />
-            <Route path="login" element={!loggedUser ? <Login /> : <Home/>} />
-            <Route path="signup" element={!loggedUser ? <Signup /> : <Home/>} />
+            <Route path={process.env.PUBLIC_URL + "/fooddetail/:foodid"} element={<FoodDetail />} />
+            <Route path={process.env.PUBLIC_URL + "login"} element={!loggedUser ? <Login /> : <Home/>} />
+            <Route path={process.env.PUBLIC_URL + "signup"} element={!loggedUser ? <Signup /> : <Home/>} />
             <Route path="pwforgot" element={!loggedUser ? <PwForgot /> : <Home/>} />
             <Route path="changepw" element={loggedUser ? <ChangePw /> : <Home/>} />
             <Route path="changeemail" element={loggedUser ? <ChangeEmail /> : <Home/>} />
@@ -46,6 +46,6 @@ root.render(
         </Routes>
         <Footer />
       </LoggedUser.Provider>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );

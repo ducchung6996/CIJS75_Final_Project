@@ -49,9 +49,9 @@ const Login = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
-        negative("/");
+        window.open(process.env.PUBLIC_URL + "/", "_self");
       } else {
-        negative("/");
+        window.open(process.env.PUBLIC_URL + "/", "_self");
       }
     });
     document.forms[0].reset();
