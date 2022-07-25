@@ -25,14 +25,14 @@ const loggedUser = JSON.parse(
 export const LoggedUser = createContext();
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <LoggedUser.Provider value={loggedUser}>
         <Header />
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path={process.env.PUBLIC_URL + "/"} element={<App />}>
             <Route index element={<Home/>}/>
-            <Route path="/fooddetail/:foodid" element={<FoodDetail />} />
+            <Route path="fooddetail/:foodid" element={<FoodDetail />} />
             <Route path="login" element={!loggedUser ? <Login /> : <Home/>} />
             <Route path="signup" element={!loggedUser ? <Signup /> : <Home/>} />
             <Route path="pwforgot" element={!loggedUser ? <PwForgot /> : <Home/>} />
