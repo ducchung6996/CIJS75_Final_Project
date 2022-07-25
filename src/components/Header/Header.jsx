@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { RiLoginBoxLine } from "react-icons/ri";
 import { HiOutlinePencil } from "react-icons/hi";
@@ -16,6 +16,7 @@ const Header = () => {
     JSON.parse(localStorage.getItem(user))
   );
   const [scrollBarPosition, setScrollBarPosition] = useState(0);
+  const negative = useNavigate();
   document.addEventListener("scroll", () =>
     setScrollBarPosition(document.documentElement.scrollTop)
   );
@@ -43,12 +44,12 @@ const Header = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             localStorage.removeItem("savedUser");
-            window.open("/", "_self");
+            negative("/");
             setUser(null);
             setLoggedUser(null);
           } else {
             localStorage.removeItem("savedUser");
-            window.open("/", "_self");
+            negative("/");
             setUser(null);
             setLoggedUser(null);
           }
