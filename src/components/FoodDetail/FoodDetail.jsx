@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./FoodDetail.css";
 import Tatca from "../Content/Tatca";
 import Swal from "sweetalert2";
@@ -11,7 +11,6 @@ const MySwal = withReactContent(Swal);
 
 const FoodDetail = () => {
   const loggedUser = useContext(LoggedUser);
-  const negative = useNavigate();
   const todoList = () => {
     let addedTodoList = [];
     if (!loggedUser) {
@@ -63,7 +62,7 @@ const FoodDetail = () => {
         icon: "warning",
       }).then((result) => {
         if (result.isConfirmed) {
-          negative("/login");
+          window.open(process.env.PUBLIC_URL + "/#/login", "_self");
         }
       });
       return;

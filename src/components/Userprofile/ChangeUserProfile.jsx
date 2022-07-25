@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Userprofile.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -18,7 +18,6 @@ const ChangeUserProfile = () => {
   );
   const [error, setError] = useState("error");
   const [errorStatus, setErrorStatus] = useState(false);
-  const negative = useNavigate();
   const handleUserName = (evt) => {
     setUserName(evt.target.value);
     setErrorStatus(false);
@@ -63,9 +62,9 @@ const ChangeUserProfile = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
-        negative("/userprofile");
+        window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       } else {
-        negative("/userprofile");
+        window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       }
     });
   };

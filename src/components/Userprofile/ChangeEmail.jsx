@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -15,7 +15,6 @@ const ChangeEmail = () => {
   const [reEmailError, setReEmailError] = useState(false);
   const [error, setError] = useState("error");
   const [errorStatus, setErrorStatus] = useState(false);
-  const negative = useNavigate();
   const handleEmail = (evt) => {
     setEmail(evt.target.value);
     setErrorStatus(false);
@@ -76,9 +75,9 @@ const ChangeEmail = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
-        negative("/userprofile");
+        window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       } else {
-        negative("/userprofile");
+        window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       }
     });
     document.forms[0].reset();

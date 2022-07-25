@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "./Slider.css";
 import { TbMapPin } from "react-icons/tb";
 import Tatca from "../Content/Tatca";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LoggedUser } from "../../index";
 import { useContext, useState } from "react";
 import FoodMenu from "../FoodMenu/FoodMenu";
@@ -28,7 +28,6 @@ const SliderSection = () => {
   }
   const recommendFood = useRef(createRandomFood(Tatca)).current;
   const loggedUser = useContext(LoggedUser);
-  const negative = useNavigate();
   const todoList = () => {
     if (!loggedUser) {
       return;
@@ -53,7 +52,7 @@ const SliderSection = () => {
         icon: "warning",
       }).then((result) => {
         if (result.isConfirmed) {
-          negative("/login");
+          window.open(process.env.PUBLIC_URL + "/#/login", "_self");
         }
       });
       return;

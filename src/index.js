@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
+import { HashRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header/Header";
 import Login from "./components/Login-Signup-PwForgot/Login";
 import Signup from "./components/Login-Signup-PwForgot/Signup";

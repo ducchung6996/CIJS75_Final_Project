@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -17,7 +16,6 @@ const PwForgot = () => {
   const [rePwError, setRePwError] = useState(false);
   const [error, setError] = useState("error");
   const [errorStatus, setErrorStatus] = useState(false);
-  const negative = useNavigate();
   const handleUser = (evt) => {
     setUser(evt.target.value);
     setErrorStatus(false);
@@ -88,9 +86,9 @@ const PwForgot = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
-        negative("/");
+        window.open(process.env.PUBLIC_URL + "/", "_self");
       } else if (result.isDenied) {
-        negative("/login");
+        window.open(process.env.PUBLIC_URL + "/#/login", "_self");
       }
     });
     document.forms[0].reset();

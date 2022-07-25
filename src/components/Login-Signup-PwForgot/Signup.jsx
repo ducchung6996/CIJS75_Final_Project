@@ -103,9 +103,9 @@ const Signup = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
-        negative("/");
+        window.open(process.env.PUBLIC_URL + "/", "_self");
       } else if (result.isDenied) {
-        negative("/login");
+        window.open(process.env.PUBLIC_URL + "/#/login", "_self");
       }
     });
     document.forms[0].reset();
