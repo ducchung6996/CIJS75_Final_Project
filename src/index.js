@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Login from "./components/Login-Signup-PwForgot/Login";
 import Signup from "./components/Login-Signup-PwForgot/Signup";
@@ -19,22 +19,20 @@ import NotFound from "./components/NotFound/NotFound";
 import Home from "./components/Home/Home"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const url = process.env.PUBLIC_URL;
 const loggedUser = JSON.parse(
   localStorage.getItem(localStorage.getItem("savedUser"))
 );
-console.log(url);
 export const LoggedUser = createContext();
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter >
       <LoggedUser.Provider value={loggedUser}>
         <Header />
         <ScrollToTop />
         <Routes>
-          <Route path={url + "/"} element={<App />}>
+          <Route path="/" element={<App />}>
             <Route index element={<Home/>}/>
-            <Route path="fooddetail/:foodid" element={<FoodDetail />} />
+            <Route path="/fooddetail/:foodid" element={<FoodDetail />} />
             <Route path="login" element={!loggedUser ? <Login /> : <Home/>} />
             <Route path="signup" element={!loggedUser ? <Signup /> : <Home/>} />
             <Route path="pwforgot" element={!loggedUser ? <PwForgot /> : <Home/>} />
@@ -48,6 +46,6 @@ root.render(
         </Routes>
         <Footer />
       </LoggedUser.Provider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
