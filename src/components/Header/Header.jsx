@@ -16,7 +16,6 @@ const Header = () => {
     JSON.parse(localStorage.getItem(user))
   );
   const [scrollBarPosition, setScrollBarPosition] = useState(0);
-  const negative = useNavigate();
   document.addEventListener("scroll", () =>
     setScrollBarPosition(document.documentElement.scrollTop)
   );
@@ -44,12 +43,12 @@ const Header = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             localStorage.removeItem("savedUser");
-            negative("/");
+            window.open(process.env.PUBLIC_URL + "/", "_self");
             setUser(null);
             setLoggedUser(null);
           } else {
             localStorage.removeItem("savedUser");
-            negative("/");
+            window.open(process.env.PUBLIC_URL + "/", "_self");
             setUser(null);
             setLoggedUser(null);
           }
