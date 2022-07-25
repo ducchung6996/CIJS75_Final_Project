@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
@@ -14,6 +14,7 @@ const Login = () => {
   const [pwError, setPwError] = useState(false);
   const [error, setError] = useState("error");
   const [errorStatus, setErrorStatus] = useState(false);
+  const negative = useNavigate();
   const handleUser = (evt) => {
     setUser(evt.target.value);
     setErrorStatus(false);
@@ -48,9 +49,9 @@ const Login = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
-        window.open("/", "_self");
+        negative("/");
       } else {
-        window.open("/", "_self");
+        negative("/");
       }
     });
     document.forms[0].reset();
