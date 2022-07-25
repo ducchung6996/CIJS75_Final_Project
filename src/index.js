@@ -23,6 +23,7 @@ const url = process.env.PUBLIC_URL;
 const loggedUser = JSON.parse(
   localStorage.getItem(localStorage.getItem("savedUser"))
 );
+console.log(url);
 export const LoggedUser = createContext();
 root.render(
   <React.StrictMode>
