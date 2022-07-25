@@ -33,20 +33,14 @@ root.render(
           <Route path="/" element={<App />}>
             <Route index element={<Home/>}/>
             <Route path="/fooddetail/:foodid" element={<FoodDetail />} />
-            {!loggedUser && <Route path="login" element={<Login />} />}
-            {!loggedUser && <Route path="signup" element={<Signup />} />}
-            {!loggedUser && <Route path="pwforgot" element={<PwForgot />} />}
-            {loggedUser && <Route path="changepw" element={<ChangePw />} />}
-            {loggedUser && (
-              <Route path="changeemail" element={<ChangeEmail />} />
-            )}
-            {loggedUser && (
-              <Route path="changeuserprofile" element={<ChangeUserProfile />} />
-            )}
-            {loggedUser && (
-              <Route path="userprofile" element={<Userprofile />} />
-            )}
-            {loggedUser && <Route path="mytodolist" element={<Mytodolist />} />}
+            <Route path="login" element={!loggedUser ? <Login /> : <NotFound />} />
+            <Route path="signup" element={!loggedUser ? <Signup /> : <NotFound />} />
+            <Route path="pwforgot" element={!loggedUser ? <PwForgot /> : <NotFound />} />
+            <Route path="changepw" element={loggedUser ? <ChangePw /> : <NotFound />} />
+            <Route path="changeemail" element={loggedUser ? <ChangeEmail /> : <NotFound />} />
+            <Route path="changeuserprofile" element={loggedUser ? <ChangeUserProfile /> : <NotFound />} />
+            <Route path="userprofile" element={loggedUser ? <Userprofile /> : <NotFound />} />
+            <Route path="mytodolist" element={loggedUser ? <Mytodolist /> : <NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

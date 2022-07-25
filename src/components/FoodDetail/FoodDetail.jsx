@@ -96,11 +96,11 @@ const FoodDetail = () => {
           />
           <button
             onClick={() => handleAddTodo(seletedFood.id)}
-            className={
+            className={!myTodoList ? "add-todo" :
               myTodoList.includes(seletedFood.id) ? "remove-todo" : "add-todo"
             }
           >
-            {myTodoList.includes(seletedFood.id)
+            {!myTodoList ? "+ Thêm vào todo list" : myTodoList.includes(seletedFood.id)
               ? "Đã có trong todo list"
               : "+ Thêm vào todo list"}
           </button>
