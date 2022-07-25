@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Login from "./components/Login-Signup-PwForgot/Login";
 import Signup from "./components/Login-Signup-PwForgot/Signup";
@@ -25,7 +25,7 @@ const loggedUser = JSON.parse(
 export const LoggedUser = createContext();
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <LoggedUser.Provider value={loggedUser}>
         <Header />
         <ScrollToTop />
@@ -46,6 +46,6 @@ root.render(
         </Routes>
         <Footer />
       </LoggedUser.Provider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
