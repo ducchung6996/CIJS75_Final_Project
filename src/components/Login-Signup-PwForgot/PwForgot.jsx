@@ -120,7 +120,7 @@ const PwForgot = () => {
           className={`user ${pwError && "active"}`}
           name="pw"
           type="password"
-          placeholder="Nhập mật khẩu"
+          placeholder="Nhập mật khẩu mới"
           minLength={6}
           maxLength={24}
           required
@@ -130,7 +130,7 @@ const PwForgot = () => {
           className={`user ${rePwError && "active"}`}
           name="repw"
           type="password"
-          placeholder="Nhập lại mật khẩu"
+          placeholder="Xác nhận mật khẩu mới"
           minLength={6}
           maxLength={24}
           required

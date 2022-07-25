@@ -23,6 +23,23 @@ const FoodDetail = () => {
   };
   const [myTodoList, setMyTodoList] = useState(todoList());
   const handleAddTodo = (a) => {
+    if (!loggedUser) {
+      MySwal.fire({
+        title: <h1>Bạn chưa đăng nhập</h1>,
+        html: <h2>Bạn cần đăng nhập tài khoản để sử dụng chức năng này</h2>,
+        confirmButtonText: "Đi tới đăng nhập",
+        confirmButtonColor: "#2980b9",
+        showDenyButton: true,
+        denyButtonText: `Hủy`,
+        denyButtonColor: "#e74c3c",
+        icon: "warning",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open(process.env.PUBLIC_URL + "/#/login", "_self");
+        }
+      });
+      return;
+    }
     for (let item of loggedUser.todoList) {
       if (item.id === a) {
         MySwal.fire({
@@ -49,23 +66,6 @@ const FoodDetail = () => {
         });
         return;
       }
-    }
-    if (!loggedUser) {
-      MySwal.fire({
-        title: <h1>Bạn chưa đăng nhập</h1>,
-        html: <h2>Bạn cần đăng nhập tài khoản để sử dụng chức năng này</h2>,
-        confirmButtonText: "Đi tới đăng nhập",
-        confirmButtonColor: "#2980b9",
-        showDenyButton: true,
-        denyButtonText: `Hủy`,
-        denyButtonColor: "#e74c3c",
-        icon: "warning",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.open(process.env.PUBLIC_URL + "/#/login", "_self");
-        }
-      });
-      return;
     }
     const userProfile = loggedUser;
     userProfile.todoList = [...userProfile.todoList, Tatca[a]];

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -17,7 +17,6 @@ const Signup = () => {
   const [rePwError, setRePwError] = useState(false);
   const [error, setError] = useState("error");
   const [errorStatus, setErrorStatus] = useState(false);
-  const negative = useNavigate();
   const handleUser = (evt) => {
     setUser(evt.target.value);
     setErrorStatus(false);

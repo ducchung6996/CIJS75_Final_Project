@@ -53,6 +53,14 @@ const ChangeUserProfile = () => {
     updatedUserProfile.userName = userName;
     updatedUserProfile.dob = userDob;
     updatedUserProfile.userAvatar = userAvatar;
+    if (JSON.stringify(updatedUserProfile) === localStorage.getItem(localStorage.getItem('savedUser'))) {
+      MySwal.fire({
+        title: <h1>Không có thay đổi</h1>,
+        html: <p>Bạn chưa thay đổi gì cả @@</p>,
+        icon: 'warning'
+      });
+      return;
+    }
     localStorage.setItem(localStorage.getItem('savedUser'), JSON.stringify(updatedUserProfile));
     MySwal.fire({
       title: <h1>Done</h1>,
