@@ -24,8 +24,8 @@ const loggedUser = JSON.parse(
 );
 export const LoggedUser = createContext();
 root.render(
-  <React.StrictMode basename={process.env.PUBLIC_URL}>
-    <BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <LoggedUser.Provider value={loggedUser}>
         <Header />
         <ScrollToTop />
