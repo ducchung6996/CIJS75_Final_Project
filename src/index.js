@@ -19,6 +19,7 @@ import NotFound from "./components/NotFound/NotFound";
 import Home from "./components/Home/Home"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const url = process.env.PUBLIC_URL;
 const loggedUser = JSON.parse(
   localStorage.getItem(localStorage.getItem("savedUser"))
 );
@@ -30,7 +31,7 @@ root.render(
         <Header />
         <ScrollToTop />
         <Routes>
-          <Route path={process.env.PUBLIC_URL + "/"} element={<App />}>
+          <Route path={url + "/"} element={<App />}>
             <Route index element={<Home/>}/>
             <Route path="fooddetail/:foodid" element={<FoodDetail />} />
             <Route path="login" element={!loggedUser ? <Login /> : <Home/>} />
