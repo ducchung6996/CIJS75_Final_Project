@@ -6,9 +6,10 @@ import Tatca from "../Content/Tatca";
 import { Link } from "react-router-dom";
 import { LoggedUser } from "../../index";
 import { useContext, useState } from "react";
-import FoodMenu from '../FoodMenu/FoodMenu';
+import FoodMenu from "../FoodMenu/FoodMenu";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import Mytodolist from "../Mytodolist/Mytodolist";
 
 const MySwal = withReactContent(Swal);
 
@@ -29,6 +30,9 @@ const SliderSection = () => {
   const recommendFood = useRef(createRandomFood(Tatca)).current;
   const loggedUser = useContext(LoggedUser);
   const todoList = () => {
+    if (!loggedUser) {
+      return;
+    }
     let addedTodoList = [];
     for (let item of loggedUser.todoList) {
       addedTodoList.push(item.id);
@@ -37,6 +41,23 @@ const SliderSection = () => {
   };
   const [myTodoList, setMyTodoList] = useState(todoList());
   const handleAddTodo = (a) => {
+    if (!loggedUser) {
+      MySwal.fire({
+        title: <h1>Bạn chưa đăng nhập</h1>,
+        html: <h2>Bạn cần đăng nhập tài khoản để sử dụng chức năng này</h2>,
+        confirmButtonText: "Đi tới đăng nhập",
+        confirmButtonColor: "#2980b9",
+        showDenyButton: true,
+        denyButtonText: `Hủy`,
+        denyButtonColor: "#e74c3c",
+        icon: "warning",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open("/login", "_self");
+        }
+      });
+      return;
+    }
     for (let item of loggedUser.todoList) {
       if (item.id === a) {
         MySwal.fire({
@@ -64,29 +85,8 @@ const SliderSection = () => {
         return;
       }
     }
-    if (!loggedUser) {
-      MySwal.fire({
-        title: <h1>Bạn chưa đăng nhập</h1>,
-        html: <h2>Bạn cần đăng nhập tài khoản để sử dụng chức năng này</h2>,
-        confirmButtonText: "Đi tới đăng nhập",
-        confirmButtonColor: "#2980b9",
-        showDenyButton: true,
-        denyButtonText: `Hủy`,
-        denyButtonColor: "#e74c3c",
-        icon: "warning",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.open("/login", "_self");
-        }
-      });
-      return;
-    }
     if (myTodoList.length === 10) {
-      Swal.fire(
-        'Không thể thêm',
-        'Đã đạt số lượng tối đa',
-        'warning'
-      );
+      Swal.fire("Không thể thêm", "Đã đạt số lượng tối đa", "warning");
       return;
     }
     const userProfile = loggedUser;
@@ -149,13 +149,13 @@ const SliderSection = () => {
                     <div className="more">
                       <button
                         onClick={() => handleAddTodo(item.id)}
-                        className={
+                        className={!myTodoList ? "add-todo" :
                           myTodoList.includes(item.id)
                             ? "remove-todo"
                             : "add-todo"
                         }
                       >
-                        {myTodoList.includes(item.id)
+                        {!myTodoList ? "+ Thêm vào todo list" : myTodoList.includes(item.id)
                           ? "Đã có trong todo list"
                           : "+ Thêm vào todo list"}
                       </button>
@@ -167,7 +167,11 @@ const SliderSection = () => {
           })}
         </Slider>
       </section>
-      <FoodMenu myTodoList={myTodoList} setMyTodoList={setMyTodoList} handleAddTodo={handleAddTodo}/>
+      <FoodMenu
+        myTodoList={myTodoList}
+        setMyTodoList={setMyTodoList}
+        handleAddTodo={handleAddTodo}
+      />
     </>
   );
 };

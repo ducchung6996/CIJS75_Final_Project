@@ -130,11 +130,11 @@ const FoodMenu = ({ myTodoList, handleAddTodo }) => {
                   </a>
                   <button
                     onClick={() => handleAddTodo(item.id)}
-                    className={
+                    className={!myTodoList ? "add-todo" :
                       myTodoList.includes(item.id) ? "remove-todo" : "add-todo"
                     }
                   >
-                    {myTodoList.includes(item.id)
+                    {!myTodoList ? "+ Thêm vào todo list" : myTodoList.includes(item.id)
                       ? "Đã có trong todo list"
                       : "+ Thêm vào todo list"}
                   </button>
