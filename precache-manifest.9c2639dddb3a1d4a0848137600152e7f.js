@@ -20,20 +20,20 @@ self.__precacheManifest = [
     "url": "/CIJS75_Final_Project/static/js/runtime~main.6850c5c1.js"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/CIJS75_Final_Project/static/media/slick.ced611da.eot"
-  },
-  {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
     "url": "/CIJS75_Final_Project/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/CIJS75_Final_Project/static/media/slick.d41f55a7.ttf"
-  },
-  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/CIJS75_Final_Project/static/media/slick.f97e3bbf.svg"
+  },
+  {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/CIJS75_Final_Project/static/media/slick.ced611da.eot"
+  },
+  {
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/CIJS75_Final_Project/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "680c8942d0d1663f9a3dbd9c53723c7a",
