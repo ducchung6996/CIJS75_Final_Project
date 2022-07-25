@@ -7,10 +7,10 @@ const Footer = () => {
     <div id="footer">
       <img className="footer-logo" src="./images/logo.png" alt="Home" />
       <div className="footer-social-icons">
-        <img src="/images/fb.png" alt="Facebook" />
-        <img src="/images/ins.png" alt="Instagram" />
-        <img src="/images/gg.png" alt="Google" />
-        <img src="/images/tiw.png" alt="Twitter" />
+        <img src="./images/fb.png" alt="Facebook" />
+        <img src="./images/ins.png" alt="Instagram" />
+        <img src="./images/gg.png" alt="Google" />
+        <img src="./images/tiw.png" alt="Twitter" />
       </div>
       <div className="footer-content">
         <Link className="footer-link" to="/">

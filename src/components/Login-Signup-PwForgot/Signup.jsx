@@ -81,7 +81,7 @@ const Signup = () => {
       email: email,
       pw: pw,
       userName: "",
-      userAvatar: "images/DefaultUser.png",
+      userAvatar: "./images/DefaultUser.png",
       todoList: [],
       dob: "",
     };
