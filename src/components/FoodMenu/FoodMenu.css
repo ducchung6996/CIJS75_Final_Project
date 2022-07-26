@@ -85,7 +85,7 @@
 
 .food-image-container {
     width: 100%;
-    height: 160px;
+    aspect-ratio: 16/9;
     overflow: hidden;
     position: relative;
 }

@@ -1,7 +1,7 @@
 #food-detail {
     height: fit-content;
     background: none;
-    padding-top: 25vh;
+    padding-top: 20vh;
     margin-bottom: 30px;
     text-align: center;
 }
@@ -13,35 +13,77 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
+}
+
+.food-infor * {
+    min-width: 500px;
 }
 
 .food-detail-title {
     font-size: 60px;
     color: #e18936;
     font-weight: bold;
-    margin-bottom: 20px;
     text-align: center;
 }
 
 .detail-image-container {
     width: 30vw;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    vertical-align: middle;
 }
 
 .food-detail-image {
-    width: 30vw;
-    min-width: 300px;
+    object-fit: cover;
+    max-width: 100%;
 }
 
 .food-detail-description {
     color: #fff;
-    font-size: 40px;
+    font-size: 30px;
     min-width: 300px;
     width: 40vw;
 }
 
 .food-detail-location {
     width: 40vw;
-    height: 400px;
+    aspect-ratio: 16/9;
     min-width: 300px;
+}
+
+@media only screen and (max-width: 992px) {
+    .food-detail-title{
+        font-size: 50px;
+    }
+    .food-detail-description {
+        font-size: 25px;
+    }
+    .food-infor * {
+        min-width: 440px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .food-detail-title{
+        font-size: 40px;
+    }
+    .food-detail-description {
+        font-size: 20px;
+    }
+    .food-infor * {
+        min-width: 340px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .food-detail-title{
+        font-size: 26px;
+    }
+    .food-detail-description {
+        font-size: 16px;
+    }
+    .food-infor * {
+        min-width: 240px;
+    }
 }

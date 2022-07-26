@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -17,31 +17,28 @@ import Home from "./components/Home/Home"
 import Footer from "./components/Footer/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-let loggedUser = JSON.parse(
+const loggedUser = JSON.parse(
   localStorage.getItem(localStorage.getItem("savedUser"))
 );
-export let LoggedUser = createContext();
 root.render(
   <React.StrictMode>
     <HashRouter >
-      <LoggedUser.Provider value={loggedUser}>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<Home/>}/>
-            <Route path="/fooddetail/:foodid" element={<FoodDetail />} />
-            <Route path="login" element={!loggedUser ? <Login /> : <Home/>} />
-            <Route path="signup" element={!loggedUser ? <Signup /> : <Home/>} />
-            <Route path="pwforgot" element={!loggedUser ? <PwForgot /> : <Home/>} />
-            <Route path="changepw" element={loggedUser ? <ChangePw /> : <Home/>} />
-            <Route path="changeemail" element={loggedUser ? <ChangeEmail /> : <Home/>} />
-            <Route path="changeuserprofile" element={loggedUser ? <ChangeUserProfile /> : <Home/>} />
-            <Route path="userprofile" element={loggedUser ? <Userprofile /> : <Home/>} />
-            <Route path="mytodolist" element={loggedUser ? <Mytodolist /> : <Home/>} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-        <Footer />
-      </LoggedUser.Provider>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<Home/>}/>
+          <Route path="/fooddetail/:foodid" element={<FoodDetail />} />
+          <Route path="login" element={!loggedUser ? <Login /> : <Home/>} />
+          <Route path="signup" element={!loggedUser ? <Signup /> : <Home/>} />
+          <Route path="pwforgot" element={!loggedUser ? <PwForgot /> : <Home/>} />
+          <Route path="changepw" element={loggedUser ? <ChangePw /> : <Home/>} />
+          <Route path="changeemail" element={loggedUser ? <ChangeEmail /> : <Home/>} />
+          <Route path="changeuserprofile" element={loggedUser ? <ChangeUserProfile /> : <Home/>} />
+          <Route path="userprofile" element={loggedUser ? <Userprofile /> : <Home/>} />
+          <Route path="mytodolist" element={loggedUser ? <Mytodolist /> : <Home/>} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+      <Footer />
     </HashRouter>
   </React.StrictMode>
 );
