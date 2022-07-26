@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10vh 0;
+    padding: 16vh 0;
     min-height: 100vh;
 }
 
@@ -15,7 +15,7 @@
 
 .todolist-container {
     width: 50%;
-    min-width: 300px;
+    min-width: 700px;
     height: fit-content;
     padding: 20px;
     display: flex;
@@ -86,19 +86,49 @@
     font-size: 36px;
     font-weight: bold;
     padding: 20px 0;
+    text-align: center;
+}
+
+.res-title {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: solid 1px #fff;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+.res-title.done {
+    text-decoration: line-through;
 }
 
 .todo {
     width: 90%;
-    height: 90px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background-color: #e18936;
+    transition: 0.4s;
+    position: relative;
+}
+
+.todo-infor-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-content-container {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #fff;
-    background-color: #e18936;
-    padding: 0 20px;
     transition: 0.4s;
-    position: relative;
 }
 
 .todo:hover {
@@ -110,30 +140,30 @@
     display: flex;
     gap: 20px;
     align-items: center;
+    height: 100%;
 }
 
 .todo-status {
     width: 36px;
     height: 36px;
+    margin: 0 20px;
 }
 
 .todo-image-container {
     width: 160px;
-    height: 90px;
+    aspect-ratio: 16/9;
     overflow: hidden;
+    vertical-align: middle;
 }
 
 .todo-image {
     object-fit: cover;
     max-width: 100%;
-    vertical-align: middle;
-
 }
 
 .todo-food-title {
     font-size: 20px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    
 }
 
 .todo-food-title.done {
@@ -143,11 +173,12 @@
 .todo-read-more {
     color: #fff;
     transition: 0.5s;
-    margin-right: 20px;
+    padding: 0 20px;
+    white-space: nowrap;
 }
 
 .todo-read-more:hover {
-    transform: translateX(6px);
+    text-decoration: underline;
 }
 
 .todo.done {
@@ -161,4 +192,61 @@
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 992px) {
+    .todolist-container {
+        min-width: 700px;
+    }
+    .todo-food-title {
+        font-size: 16px;
+        word-wrap: break-word;
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .todolist-container {
+        min-width: 500px;
+    }
+    .todo-food-title {
+        display: none;
+    }
+    .res-title {
+        display: block;
+    }
+    .todo-infor-container {
+        border-left: solid 1px #fff;
+    }
+    .todo-read-more {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .todolist-container {
+        min-width: 90%;
+    }
+    .todo-read-more {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+    .todo-content {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .todo-title {
+        font-size: 20px;
+    }
+    .res-title {
+        font-size: 14px;
+    }
+    .todo-content-container {
+        flex-direction: column;
+    }
+    .todo-image-container {
+        width: 100%;
+    }
 }

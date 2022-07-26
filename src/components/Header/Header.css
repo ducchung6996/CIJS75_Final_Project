@@ -6,7 +6,7 @@
     position: fixed;
     width: 100%;
     transition: 0.4s;
-    z-index: 1;
+    z-index: 2;
 }
 
 .user-btn-avatar-container {
@@ -169,7 +169,7 @@
     right: 50px;
     border: none;
     cursor: pointer;
-    z-index: 1;
+    z-index: 2;
     border: 1px solid #000;
 }
 

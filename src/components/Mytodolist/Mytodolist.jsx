@@ -13,7 +13,7 @@ const Mytodolist = () => {
   const savedUser = JSON.parse(
     localStorage.getItem(localStorage.getItem("savedUser"))
   );
-  const {setSavedUser} = useContext(SavedUser);
+  const { setSavedUser } = useContext(SavedUser);
   const [myTodoList, setMyTodoList] = useState([...savedUser.todoList]);
   const handleTodoStatus = (e) => {
     const arr = myTodoList;
@@ -82,9 +82,7 @@ const Mytodolist = () => {
   };
   return (
     <section id="mytodolist">
-      <div
-        className="todolist-container"
-      >
+      <div className="todolist-container">
         <div
           className={`save-undo ${
             JSON.stringify(myTodoList) !== JSON.stringify(savedUser.todoList)
@@ -109,37 +107,47 @@ const Mytodolist = () => {
                 className={`todo ${item.status === true ? "done" : ""}`}
                 key={item.id}
               >
-                <div className="todo-content">
-                  <input
-                    checked={item.status}
-                    type="checkbox"
-                    className="todo-status"
-                    onChange={() => handleTodoStatus(index)}
-                  />
-                  <div className="todo-image-container">
-                    <img
-                      className="todo-image"
-                      src={item.image}
-                      alt={item.title}
-                    />
-                  </div>
-                  <div
-                    className={`todo-food-title ${
-                      item.status === true ? "done" : ""
-                    }`}
-                  >
-                    {item.title}
-                  </div>
-                </div>
-                <Link className="todo-read-more" to={`/fooddetail/${item.id}`}>
-                  Xem chi tiết ►
-                </Link>
+                <input
+                  checked={item.status}
+                  type="checkbox"
+                  className="todo-status"
+                  onChange={() => handleTodoStatus(index)}
+                />
                 <button
                   onClick={() => handleDeleteTodo(item.id)}
                   className="delete-todo"
                 >
                   <RiDeleteBin6Line size={20} />
                 </button>
+                <div className="todo-infor-container">
+                  <div className={`res-title ${
+                    item.status === true ? "done" : ""
+                  }`}>{item.title}</div>
+                  <div className="todo-content-container">
+                    <div className="todo-content">
+                      <div className="todo-image-container">
+                        <img
+                          className="todo-image"
+                          src={item.image}
+                          alt={item.title}
+                        />
+                      </div>
+                      <div
+                        className={`todo-food-title ${
+                          item.status === true ? "done" : ""
+                        }`}
+                      >
+                        {item.title}
+                      </div>
+                    </div>
+                    <Link
+                      className="todo-read-more"
+                      to={`/fooddetail/${item.id}`}
+                    >
+                      Xem chi tiết ►
+                    </Link>
+                  </div>
+                </div>
               </div>
             );
           })
