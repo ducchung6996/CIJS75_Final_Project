@@ -1,11 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext, useState } from "react";
 import Slider from "react-slick";
 import "./Slider.css";
 import { TbMapPin } from "react-icons/tb";
 import Tatca from "../Content/Tatca";
 import { Link } from "react-router-dom";
-import { LoggedUser } from "../../index";
-import { useContext, useState } from "react";
+import { SavedUser } from "../../App";
 import FoodMenu from "../FoodMenu/FoodMenu";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -27,20 +26,20 @@ const SliderSection = () => {
     return result;
   }
   const recommendFood = useRef(createRandomFood(Tatca)).current;
-  const loggedUser = useContext(LoggedUser);
+  const {savedUser} = useContext(SavedUser);
   const todoList = () => {
-    if (!loggedUser) {
+    if (!savedUser) {
       return;
     }
     let addedTodoList = [];
-    for (let item of loggedUser.todoList) {
+    for (let item of savedUser.todoList) {
       addedTodoList.push(item.id);
     }
     return addedTodoList;
   };
   const [myTodoList, setMyTodoList] = useState(todoList());
   const handleAddTodo = (a) => {
-    if (!loggedUser) {
+    if (!savedUser) {
       MySwal.fire({
         title: <h1>Bạn chưa đăng nhập</h1>,
         html: <h2>Bạn cần đăng nhập tài khoản để sử dụng chức năng này</h2>,
@@ -57,7 +56,7 @@ const SliderSection = () => {
       });
       return;
     }
-    for (let item of loggedUser.todoList) {
+    for (let item of savedUser.todoList) {
       if (item.id === a) {
         MySwal.fire({
           title: <h1>Đã có trong todo list</h1>,
@@ -70,7 +69,7 @@ const SliderSection = () => {
           icon: "warning",
         }).then((result) => {
           if (result.isConfirmed) {
-            const userProfile = loggedUser;
+            const userProfile = savedUser;
             userProfile.todoList = userProfile.todoList.filter(
               (item) => item.id !== a
             );
@@ -88,7 +87,7 @@ const SliderSection = () => {
       Swal.fire("Không thể thêm", "Đã đạt số lượng tối đa", "warning");
       return;
     }
-    const userProfile = loggedUser;
+    const userProfile = savedUser;
     userProfile.todoList = [...userProfile.todoList, Tatca[a]];
     localStorage.setItem(
       localStorage.getItem("savedUser"),

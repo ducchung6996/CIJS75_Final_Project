@@ -1,20 +1,19 @@
-import React from "react";
-import { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Userprofile.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { LoggedUser } from "../../index";
+import { SavedUser } from "../../App";
 
 const MySwal = withReactContent(Swal);
 
 const ChangeUserProfile = () => {
-  const loggedUser = useContext(LoggedUser);
-  const [userName, setUserName] = useState(loggedUser && loggedUser.userName);
+  const {savedUser, setSavedUser} = useContext(SavedUser);
+  const [userName, setUserName] = useState(savedUser && savedUser.userName);
   const [userNameError, setUserNameError] = useState(false);
-  const [userDob, setUserDob] = useState(loggedUser && loggedUser.dob);
+  const [userDob, setUserDob] = useState(savedUser && savedUser.dob);
   const [userAvatar, setUserAvatar] = useState(
-    loggedUser && loggedUser.userAvatar
+    savedUser && savedUser.userAvatar
   );
   const [error, setError] = useState("error");
   const [errorStatus, setErrorStatus] = useState(false);
@@ -70,8 +69,10 @@ const ChangeUserProfile = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
+        setSavedUser(updatedUserProfile);
         window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       } else {
+        setSavedUser(updatedUserProfile);
         window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       }
     });
@@ -87,8 +88,8 @@ const ChangeUserProfile = () => {
             src={
               userAvatar
                 ? userAvatar
-                : loggedUser
-                ? loggedUser.userAvatar
+                : savedUser
+                ? savedUser.userAvatar
                 : "images/DefaultUser.png"
             }
             alt="User"
@@ -112,7 +113,7 @@ const ChangeUserProfile = () => {
           className={`user ${userNameError && "active"}`}
           name="userName"
           type="text"
-          placeholder={loggedUser && loggedUser.userName}
+          placeholder={savedUser && savedUser.userName}
           minLength={1}
           maxLength={24}
         />
@@ -125,7 +126,7 @@ const ChangeUserProfile = () => {
           className="user"
           name="userDob"
           type="date"
-          defaultValue={loggedUser && loggedUser.dob}
+          defaultValue={savedUser && savedUser.dob}
         />
         <div className={`error ${errorStatus && "active"}`}>{error}</div>
         <button className="submit-btn" type="submit">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link} from "react-router-dom";
 import "./Header.css";
 import { RiLoginBoxLine } from "react-icons/ri";
@@ -7,13 +7,12 @@ import { TbLogout } from "react-icons/tb";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { SavedUser } from "../../App";
 
 const MySwal = withReactContent(Swal);
 
 const Header = () => {
-  const [loggedUser, setLoggedUser] = useState(
-    JSON.parse(localStorage.getItem(localStorage.getItem("savedUser")))
-  );
+  const {savedUser} = useContext(SavedUser);
   const [scrollBarPosition, setScrollBarPosition] = useState(0);
   document.addEventListener("scroll", () =>
     setScrollBarPosition(document.documentElement.scrollTop)
@@ -43,11 +42,9 @@ const Header = () => {
           if (result.isConfirmed) {
             localStorage.removeItem("savedUser");
             window.open(process.env.PUBLIC_URL + "/", "_self");
-            setLoggedUser(null);
           } else {
             localStorage.removeItem("savedUser");
             window.open(process.env.PUBLIC_URL + "/", "_self");
-            setLoggedUser(null);
           }
         });
       }
@@ -66,7 +63,7 @@ const Header = () => {
           <Link to="about">Giới thiệu chung</Link>
           <Link to="foodtour">Foodtour</Link>
           <Link to="contacts">Liên hệ</Link>
-          <div className={`login-signup-btn ${!loggedUser && "active"}`}>
+          <div className={`login-signup-btn ${!savedUser && "active"}`}>
             <Link to="login">
               Đăng nhập <RiLoginBoxLine />
             </Link>
@@ -75,12 +72,12 @@ const Header = () => {
               Đăng ký <HiOutlinePencil />
             </Link>
           </div>
-          <div className={`user-menu ${loggedUser && "active"}`}>
-            Chào mừng <strong>{loggedUser && localStorage.getItem("savedUser")}</strong>
+          <div className={`user-menu ${savedUser && "active"}`}>
+            Chào mừng <strong>{savedUser && localStorage.getItem("savedUser")}</strong>
             <span className="user-btn-avatar-container">
               <img
                 src={
-                  loggedUser && loggedUser.userAvatar}
+                  savedUser && savedUser.userAvatar}
                 className="user-btn-avatar"
                 alt="avatar"
               />

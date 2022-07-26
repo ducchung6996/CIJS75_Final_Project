@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Userprofile.css";
 import { FiEdit3, FiEdit } from "react-icons/fi";
-import { LoggedUser } from "../../index";
-import { useContext } from "react";
+import { SavedUser } from "../../App";
 
 const Userprofile = () => {
-  const loggedUser = useContext(LoggedUser);
+  const {savedUser} = useContext(SavedUser);
   function formatDate(input) {
     var datePart = input.match(/\d+/g),
       year = datePart[0].substring(0),
@@ -25,19 +24,19 @@ const Userprofile = () => {
         <div className="user-avatar-container">
           <img
             className="user-avatar"
-            src={loggedUser ? loggedUser.userAvatar : "images/DefaultUser.png"}
+            src={savedUser ? savedUser.userAvatar : "images/DefaultUser.png"}
             alt="User"
           />
         </div>
         <h1>{localStorage.getItem('savedUser')}</h1>
         <div className="user-infor">
-          Tên người dùng: {loggedUser && loggedUser.userName}
+          Tên người dùng: {savedUser && savedUser.userName}
         </div>
         <div className="user-infor">
-          Ngày sinh: {loggedUser.dob && formatDate(loggedUser.dob)}
+          Ngày sinh: {savedUser.dob && formatDate(savedUser.dob)}
         </div>
         <div className="user-infor">
-          Địa chỉ email: {loggedUser && loggedUser.email}
+          Địa chỉ email: {savedUser && savedUser.email}
         </div>
         <Link className="security-change" to="/changepw">
           Đổi mật khẩu <FiEdit3 />

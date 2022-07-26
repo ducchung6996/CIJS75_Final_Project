@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Mytodolist.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -6,14 +6,15 @@ import { FaRegSave } from "react-icons/fa";
 import { AiOutlineUndo } from "react-icons/ai";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
+import { SavedUser } from "../../App";
 const MySwal = withReactContent(Swal);
 
 const Mytodolist = () => {
-  const loggedUser = JSON.parse(
+  const savedUser = JSON.parse(
     localStorage.getItem(localStorage.getItem("savedUser"))
   );
-  const [myTodoList, setMyTodoList] = useState([...loggedUser.todoList]);
+  const {setSavedUser} = useContext(SavedUser);
+  const [myTodoList, setMyTodoList] = useState([...savedUser.todoList]);
   const handleTodoStatus = (e) => {
     const arr = myTodoList;
     arr[e].status = !arr[e].status;
@@ -47,11 +48,12 @@ const Mytodolist = () => {
       icon: "warning",
     }).then((result) => {
       if (result.isConfirmed) {
-        loggedUser.todoList = myTodoList;
+        savedUser.todoList = myTodoList;
         localStorage.setItem(
           localStorage.getItem("savedUser"),
-          JSON.stringify(loggedUser)
+          JSON.stringify(savedUser)
         );
+        setSavedUser(savedUser);
         MySwal.fire({
           title: <h1>Done</h1>,
           html: <h2>Lưu thành công</h2>,
@@ -74,7 +76,7 @@ const Mytodolist = () => {
       icon: "warning",
     }).then((result) => {
       if (result.isConfirmed) {
-        setMyTodoList([...loggedUser.todoList]);
+        setMyTodoList([...savedUser.todoList]);
       }
     });
   };
@@ -85,7 +87,7 @@ const Mytodolist = () => {
       >
         <div
           className={`save-undo ${
-            JSON.stringify(myTodoList) !== JSON.stringify(loggedUser.todoList)
+            JSON.stringify(myTodoList) !== JSON.stringify(savedUser.todoList)
               ? "active"
               : ""
           }`}

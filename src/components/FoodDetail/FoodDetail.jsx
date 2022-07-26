@@ -4,26 +4,26 @@ import "./FoodDetail.css";
 import Tatca from "../Content/Tatca";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { LoggedUser } from "../../index";
+import { SavedUser } from "../../App";
 import { useContext, useState } from "react";
 
 const MySwal = withReactContent(Swal);
 
 const FoodDetail = () => {
-  const loggedUser = useContext(LoggedUser);
+  const {savedUser} = useContext(SavedUser);
   const todoList = () => {
     let addedTodoList = [];
-    if (!loggedUser) {
+    if (!savedUser) {
       return;
     }
-    for (let item of loggedUser.todoList) {
+    for (let item of savedUser.todoList) {
       addedTodoList.push(item.id);
     }
     return addedTodoList;
   };
   const [myTodoList, setMyTodoList] = useState(todoList());
   const handleAddTodo = (a) => {
-    if (!loggedUser) {
+    if (!savedUser) {
       MySwal.fire({
         title: <h1>Bạn chưa đăng nhập</h1>,
         html: <h2>Bạn cần đăng nhập tài khoản để sử dụng chức năng này</h2>,
@@ -40,7 +40,7 @@ const FoodDetail = () => {
       });
       return;
     }
-    for (let item of loggedUser.todoList) {
+    for (let item of savedUser.todoList) {
       if (item.id === a) {
         MySwal.fire({
           title: <h1>Đã có trong todo list</h1>,
@@ -53,7 +53,7 @@ const FoodDetail = () => {
           icon: "warning",
         }).then((result) => {
           if (result.isConfirmed) {
-            const userProfile = loggedUser;
+            const userProfile = savedUser;
             userProfile.todoList = userProfile.todoList.filter(
               (item) => item.id !== a
             );
@@ -67,7 +67,7 @@ const FoodDetail = () => {
         return;
       }
     }
-    const userProfile = loggedUser;
+    const userProfile = savedUser;
     userProfile.todoList = [...userProfile.todoList, Tatca[a]];
     localStorage.setItem(
       localStorage.getItem("savedUser"),

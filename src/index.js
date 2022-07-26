@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { HashRouter, Routes, Route} from "react-router-dom";
-import Header from "./components/Header/Header";
 import Login from "./components/Login-Signup-PwForgot/Login";
 import Signup from "./components/Login-Signup-PwForgot/Signup";
 import PwForgot from "./components/Login-Signup-PwForgot/PwForgot";
@@ -11,24 +10,21 @@ import Userprofile from "./components/Userprofile/Userprofile";
 import ChangePw from "./components/Userprofile/ChangePw";
 import ChangeEmail from "./components/Userprofile/ChangeEmail";
 import ChangeUserProfile from "./components/Userprofile/ChangeUserProfile";
-import Footer from "./components/Footer/Footer";
-import ScrollToTop from "./components/Header/ScrollToTop";
 import FoodDetail from "./components/FoodDetail/FoodDetail";
 import Mytodolist from "./components/Mytodolist/Mytodolist";
 import NotFound from "./components/NotFound/NotFound";
 import Home from "./components/Home/Home"
+import Footer from "./components/Footer/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const loggedUser = JSON.parse(
+let loggedUser = JSON.parse(
   localStorage.getItem(localStorage.getItem("savedUser"))
 );
-export const LoggedUser = createContext();
+export let LoggedUser = createContext();
 root.render(
   <React.StrictMode>
     <HashRouter >
       <LoggedUser.Provider value={loggedUser}>
-        <Header />
-        <ScrollToTop />
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home/>}/>

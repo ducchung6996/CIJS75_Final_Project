@@ -1,12 +1,13 @@
-import React from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { SavedUser } from "../../App";
 
 const MySwal = withReactContent(Swal);
 
 const ChangePw = () => {
+  const {savedUser, setSavedUser} = useContext(SavedUser);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [pw, setPw] = useState("");
@@ -32,9 +33,7 @@ const ChangePw = () => {
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const currentUser = localStorage.getItem("savedUser");
-    const userProfile = JSON.parse(localStorage.getItem(currentUser));
-    if (email !== userProfile.email) {
+    if (email !== savedUser.email) {
       setError("Bạn đã nhập sai email");
       setErrorStatus(true);
       setEmailError(true);
@@ -46,7 +45,7 @@ const ChangePw = () => {
       setPwError(true);
       return;
     }
-    if (pw === userProfile.pw) {
+    if (pw === savedUser.pw) {
       setError("Mật khẩu mới không thể trùng với mật khẩu cũ");
       setErrorStatus(true);
       setPwError(true);
@@ -58,11 +57,11 @@ const ChangePw = () => {
       setRePwError(true);
       return;
     }
-    const updatedUserProfile = JSON.parse(localStorage.getItem(currentUser));
+    const updatedUserProfile = savedUser;
     updatedUserProfile.pw = pw;
     const userEmailProfile = JSON.parse(localStorage.getItem(email));
     userEmailProfile.pw = pw;
-    localStorage.setItem(currentUser, JSON.stringify(updatedUserProfile));
+    localStorage.setItem(localStorage.getItem("savedUser"), JSON.stringify(updatedUserProfile));
     localStorage.setItem(email, JSON.stringify(userEmailProfile));
     MySwal.fire({
       title: <h1>Done</h1>,
@@ -72,8 +71,10 @@ const ChangePw = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
+        setSavedUser(updatedUserProfile);
         window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       } else {
+        setSavedUser(updatedUserProfile);
         window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       }
     });
@@ -96,7 +97,7 @@ const ChangePw = () => {
           className={`user ${pwError && "active"}`}
           name="pw"
           type="password"
-          placeholder="Nhập mật khẩu"
+          placeholder="Nhập mật khẩu mới"
           minLength={6}
           maxLength={24}
           required
@@ -106,7 +107,7 @@ const ChangePw = () => {
           className={`user ${rePwError && "active"}`}
           name="repw"
           type="password"
-          placeholder="Nhập lại mật khẩu"
+          placeholder="Xác nhận mật khẩu mới"
           minLength={6}
           maxLength={24}
           required

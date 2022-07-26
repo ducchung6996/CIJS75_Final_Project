@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { SavedUser } from "../../App";
 
 const MySwal = withReactContent(Swal);
 
 const ChangeEmail = () => {
+  const {savedUser, setSavedUser} = useContext(SavedUser);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [pw, setPw] = useState("");
@@ -32,9 +34,7 @@ const ChangeEmail = () => {
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const currentUser = localStorage.getItem("savedUser");
-    const userProfile = JSON.parse(localStorage.getItem(currentUser));
-    if (email === userProfile.email) {
+    if (email === savedUser.email) {
       setError("Không thể trùng email cũ");
       setErrorStatus(true);
       setEmailError(true);
@@ -46,7 +46,7 @@ const ChangeEmail = () => {
       setPwError(true);
       return;
     }
-    if (pw !== userProfile.pw) {
+    if (pw !== savedUser.pw) {
       setError("Bạn đã nhập sai mật khẩu");
       setErrorStatus(true);
       setPwError(true);
@@ -58,14 +58,14 @@ const ChangeEmail = () => {
       setReEmailError(true);
       return;
     }
-    const updatedUserProfile = JSON.parse(localStorage.getItem(currentUser));
+    const updatedUserProfile = savedUser;
     updatedUserProfile.email = email;
-    localStorage.removeItem(userProfile.email)
+    localStorage.removeItem(savedUser.email);
     const userEmailProfile = {
-        user: currentUser,
+        user: localStorage.getItem("savedUser"),
         pw: pw,
     }
-    localStorage.setItem(currentUser, JSON.stringify(updatedUserProfile));
+    localStorage.setItem(localStorage.getItem("savedUser"), JSON.stringify(updatedUserProfile));
     localStorage.setItem(email, JSON.stringify(userEmailProfile));
     MySwal.fire({
       title: <h1>Done</h1>,
@@ -75,8 +75,10 @@ const ChangeEmail = () => {
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {
+        setSavedUser(updatedUserProfile);
         window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       } else {
+        setSavedUser(updatedUserProfile);
         window.open(process.env.PUBLIC_URL + "/#/userprofile", "_self");
       }
     });
