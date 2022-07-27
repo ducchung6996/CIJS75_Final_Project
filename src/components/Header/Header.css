@@ -202,7 +202,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: fit-content;
     height: fit-content;
     background-color: #fff;
     border: solid 1px #e18936;
@@ -298,13 +298,14 @@
 }
 
 .burger-user {
+    white-space: nowrap;
     color: #fff;
     background-color: #e18936;
     display: flex;
     align-items: center;
     gap: 5px;
     justify-content: center;
-    padding: 10px 0;
+    padding: 10px;
     font-size: 20px;
 }
 
@@ -344,5 +345,11 @@
     }
     #burger-menu-container {
         display: flex;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .burger-menu {
+        width: 90vw;
     }
 }

@@ -123,7 +123,7 @@ const Signup = () => {
           type="text"
           placeholder="Nhập tên tài khoản"
           minLength={6}
-          maxLength={24}
+          maxLength={16}
           required
         />
         <label className="input-label" htmlFor="email">
@@ -135,6 +135,7 @@ const Signup = () => {
           name="email"
           type="email"
           placeholder="Nhập địa chỉ email"
+          maxLength={24}
           required
         />
         <label className="input-label" htmlFor="pw">
@@ -147,7 +148,7 @@ const Signup = () => {
           type="password"
           placeholder="Nhập mật khẩu"
           minLength={6}
-          maxLength={24}
+          maxLength={18}
           required
         />
         <label className="input-label" htmlFor="repw">
@@ -160,7 +161,7 @@ const Signup = () => {
           type="password"
           placeholder="Nhập lại mật khẩu"
           minLength={6}
-          maxLength={24}
+          maxLength={18}
           required
         />
         <div className={`error ${errorStatus && "active"}`}>{error}</div>

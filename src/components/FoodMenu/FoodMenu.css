@@ -15,7 +15,8 @@
 }
 
 .food-menu-searchbar {
-    padding: 10px;
+    padding: 0 10px;
+    height: 40px;
     outline: none;
     width: 20%;
     min-width: 180px;
@@ -26,17 +27,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
+    position: relative;
 }
 
 .food-category {
     border: 1px solid #e18936;
     background: none;
+    height: 40px;
     color: #e18936;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
     transition: 0.4s;
-    padding: 5px 10px;
+    padding: 0 10px;
     white-space: nowrap;
 }
 
@@ -79,8 +82,17 @@
 }
 
 @keyframes food-appear {
-    from {opacity: 0;};
-    to {opacity: 1;};
+    from {
+        opacity: 0;
+    }
+
+    ;
+
+    to {
+        opacity: 1;
+    }
+
+    ;
 }
 
 .food-image-container {
@@ -119,4 +131,63 @@
 
 .food-location:hover {
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 992px) {
+    .food-menu-nav {
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .food-menu-searchbar {
+        min-width: 300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .food-category {
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .food-menu-searchbar {
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .food {
+        width: 260px;
+    }
+
+    .food-title {
+        height: 32px;
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    #food-menu-container {
+        padding: 20px 5vw;
+    }
+    
+    .food-menu-category {
+        flex-wrap: wrap;
+    }
+
+    .food-menu {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .food-menu-searchbar {
+        min-width: 90vw;
+    }
+    .food {
+        width: 200px;
+    }
+    .food-menu {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 }

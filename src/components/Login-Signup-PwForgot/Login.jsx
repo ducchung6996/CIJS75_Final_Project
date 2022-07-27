@@ -67,7 +67,7 @@ const Login = () => {
           type="text"
           placeholder="Nhập tên tài khoản hoặc email"
           minLength={6}
-          maxLength={18}
+          maxLength={16}
           required
         />
         <label className="input-label" htmlFor="pw">Mật khẩu</label>

@@ -12,6 +12,7 @@
     background-color: #fff;
     border: 1px solid #e18936;
     transition: 0.4s;
+    width: 360px;
 }
 
 .slider-item-container:hover {
@@ -19,8 +20,10 @@
 }
 
 .slider-image-container {
-    width: 360px;
-    height: 200px;
+    min-width: 100%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    vertical-align: middle;
     overflow: hidden;
     position: relative;
 }
@@ -130,4 +133,54 @@
 
 .slider-item-location:hover {
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 992px) {
+    .slider-item-container {
+        width: 320px;
+    }
+    .slider-item-title {
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .slider-item-container {
+        width: 280px;
+    }
+    .slider-title {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .slider-item-title {
+        height: 36px;
+        font-size: 18;
+    }
+    #slider {
+        padding: 20px 0;
+    }
+    .slider-item {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .slider-item-container {
+        width: 200px;
+    }
+    .slider-item-title {
+        height: 32px;
+        font-size: 16px;
+    }
+    .slider-item-location {
+        font-size: 14px;
+    }
+    .add-todo, .remove-todo {
+        font-size: 14px;
+    }
+    .slider-title {
+        font-size: 24px;
+    }
 }
