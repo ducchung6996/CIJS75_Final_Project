@@ -107,12 +107,6 @@ const Mytodolist = () => {
                 className={`todo ${item.status === true ? "done" : ""}`}
                 key={item.id}
               >
-                <input
-                  checked={item.status}
-                  type="checkbox"
-                  className="todo-status"
-                  onChange={() => handleTodoStatus(index)}
-                />
                 <button
                   onClick={() => handleDeleteTodo(item.id)}
                   className="delete-todo"
@@ -124,6 +118,13 @@ const Mytodolist = () => {
                     item.status === true ? "done" : ""
                   }`}>{item.title}</div>
                   <div className="todo-content-container">
+                  <input
+                  checked={item.status}
+                  type="checkbox"
+                  className="todo-status"
+                  onChange={() => handleTodoStatus(index)}
+                />
+                    <div className="res-container">
                     <div className="todo-content">
                       <div className="todo-image-container">
                         <img
@@ -146,6 +147,7 @@ const Mytodolist = () => {
                     >
                       Xem chi tiết ►
                     </Link>
+                    </div>
                   </div>
                 </div>
               </div>

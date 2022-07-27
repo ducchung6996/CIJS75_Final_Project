@@ -33,9 +33,9 @@ a {
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #e18936; 
+  background: #333; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a36022; 
+  background: #000; 
 }

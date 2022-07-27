@@ -107,9 +107,9 @@ const Welcome = () => {
                     to={`/fooddetail/${item.id}`}
                     className="searched-result"
                   >
-                    <div className="todo-image-container">
+                    <div className="searched-img-container">
                       <img
-                        className="todo-image"
+                        className="searched-img"
                         src={item.image}
                         alt={item.title}
                       />
