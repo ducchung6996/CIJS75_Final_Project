@@ -26,7 +26,7 @@ const SliderSection = () => {
     return result;
   }
   const recommendFood = useRef(createRandomFood(Tatca)).current;
-  const {savedUser} = useContext(SavedUser);
+  const { savedUser } = useContext(SavedUser);
   const todoList = () => {
     if (!savedUser) {
       return;
@@ -147,13 +147,17 @@ const SliderSection = () => {
                     <div className="more">
                       <button
                         onClick={() => handleAddTodo(item.id)}
-                        className={!myTodoList ? "add-todo" :
-                          myTodoList.includes(item.id)
+                        className={
+                          !myTodoList
+                            ? "add-todo"
+                            : myTodoList.includes(item.id)
                             ? "remove-todo"
                             : "add-todo"
                         }
                       >
-                        {!myTodoList ? "+ Thêm vào todo list" : myTodoList.includes(item.id)
+                        {!myTodoList
+                          ? "+ Thêm vào todo list"
+                          : myTodoList.includes(item.id)
                           ? "Đã có trong todo list"
                           : "+ Thêm vào todo list"}
                       </button>

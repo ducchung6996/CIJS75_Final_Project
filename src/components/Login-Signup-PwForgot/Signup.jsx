@@ -47,6 +47,12 @@ const Signup = () => {
   }
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    if (user.length < 6 || user.length > 18) {
+      setError("Tên người dùng cần đạt 6 đến 18 ký tự");
+      setErrorStatus(true);
+      setUserError(true);
+      return;
+    }
     if (checkIfStringHasSpecialChar(user) === true) {
       setError("Tên người dùng không được chứa các ký tự đặc biệt");
       setErrorStatus(true);

@@ -44,7 +44,8 @@
 }
 
 .food-category:hover {
-    transform: scale(1.1);
+    color: #fff;
+    background-color: #e18936;
 }
 
 .food-category.active {
@@ -68,6 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: fit-content;
 }
 
 .food {

@@ -76,73 +76,97 @@ const FoodMenu = ({ myTodoList, handleAddTodo }) => {
         </div>
       </div>
       <div className="food-menu">
-        {keyword !== "" ? JSON.stringify(searchResult) === '[]' ? <p className="no-result">Không có kết quả</p> : (searchResult.map((item) => {
-          return (
-            <div className="food-container" key={item.id}>
-              <div className="food">
-                <div className="food-image-container">
-                  <img
-                    className="food-image"
-                    src={item.image}
-                    alt={item.title}
-                  />
-                  <Link className="read-more" to={`/${item.id}`}>
-                    Xem chi tiết ►
-                  </Link>
+        {keyword !== "" ? (
+          JSON.stringify(searchResult) === "[]" ? (
+            <p className="no-result">Không có kết quả</p>
+          ) : (
+            searchResult.map((item) => {
+              return (
+                <div className="food-container" key={item.id}>
+                  <div className="food">
+                    <div className="food-image-container">
+                      <img
+                        className="food-image"
+                        src={item.image}
+                        alt={item.title}
+                      />
+                      <Link className="read-more" to={`/${item.id}`}>
+                        Xem chi tiết ►
+                      </Link>
+                    </div>
+                    <dir className="food-description">
+                      <h1 className="food-title">{item.title}</h1>
+                      <a
+                        href={item.map}
+                        target="blank"
+                        className="food-location"
+                      >
+                        <TbMapPin /> {item.location}
+                      </a>
+                      <button
+                        onClick={() => handleAddTodo(item.id)}
+                        className={
+                          !myTodoList
+                            ? "add-todo"
+                            : myTodoList.includes(item.id)
+                            ? "remove-todo"
+                            : "add-todo"
+                        }
+                      >
+                        {!myTodoList
+                          ? "+ Thêm vào todo list"
+                          : myTodoList.includes(item.id)
+                          ? "Đã có trong todo list"
+                          : "+ Thêm vào todo list"}
+                      </button>
+                    </dir>
+                  </div>
                 </div>
-                <dir className="food-description">
-                  <h1 className="food-title">{item.title}</h1>
-                  <a href={item.map} target="blank" className="food-location">
-                    <TbMapPin /> {item.location}
-                  </a>
-                  <button
-                    onClick={() => handleAddTodo(item.id)}
-                    className={
-                      myTodoList.includes(item.id) ? "remove-todo" : "add-todo"
-                    }
-                  >
-                    {myTodoList.includes(item.id)
-                      ? "Đã có trong todo list"
-                      : "+ Thêm vào todo list"}
-                  </button>
-                </dir>
-              </div>
-            </div>
-          );
-        })) : (selected.map((item) => {
-          return (
-            <div className="food-container" key={item.id}>
-              <div className="food">
-                <div className="food-image-container">
-                  <img
-                    className="food-image"
-                    src={item.image}
-                    alt={item.title}
-                  />
-                  <Link className="read-more" to={`/fooddetail/${item.id}`}>
-                    Xem chi tiết ►
-                  </Link>
+              );
+            })
+          )
+        ) : (
+          selected.map((item) => {
+            return (
+              <div className="food-container" key={item.id}>
+                <div className="food">
+                  <div className="food-image-container">
+                    <img
+                      className="food-image"
+                      src={item.image}
+                      alt={item.title}
+                    />
+                    <Link className="read-more" to={`/fooddetail/${item.id}`}>
+                      Xem chi tiết ►
+                    </Link>
+                  </div>
+                  <dir className="food-description">
+                    <h1 className="food-title">{item.title}</h1>
+                    <a href={item.map} target="blank" className="food-location">
+                      <TbMapPin /> {item.location}
+                    </a>
+                    <button
+                      onClick={() => handleAddTodo(item.id)}
+                      className={
+                        !myTodoList
+                          ? "add-todo"
+                          : myTodoList.includes(item.id)
+                          ? "remove-todo"
+                          : "add-todo"
+                      }
+                    >
+                      {!myTodoList
+                        ? "+ Thêm vào todo list"
+                        : myTodoList.includes(item.id)
+                        ? "Đã có trong todo list"
+                        : "+ Thêm vào todo list"}
+                    </button>
+                  </dir>
                 </div>
-                <dir className="food-description">
-                  <h1 className="food-title">{item.title}</h1>
-                  <a href={item.map} target="blank" className="food-location">
-                    <TbMapPin /> {item.location}
-                  </a>
-                  <button
-                    onClick={() => handleAddTodo(item.id)}
-                    className={!myTodoList ? "add-todo" :
-                      myTodoList.includes(item.id) ? "remove-todo" : "add-todo"
-                    }
-                  >
-                    {!myTodoList ? "+ Thêm vào todo list" : myTodoList.includes(item.id)
-                      ? "Đã có trong todo list"
-                      : "+ Thêm vào todo list"}
-                  </button>
-                </dir>
               </div>
-            </div>
-          );
-        }))}
+            );
+          })
+        )}
       </div>
     </section>
   );
