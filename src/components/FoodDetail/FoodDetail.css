@@ -1,9 +1,11 @@
 #food-detail {
     height: fit-content;
+    min-height: 100vh;
     background: none;
-    padding-top: 20vh;
+    padding: 16vh 0;
     margin-bottom: 30px;
     text-align: center;
+    position: relative;
 }
 
 .food-infor {
@@ -14,6 +16,7 @@
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    animation: food-appear 0.5s;
 }
 
 .food-infor * {
@@ -29,8 +32,6 @@
 
 .detail-image-container {
     width: 30vw;
-    aspect-ratio: 16/9;
-    overflow: hidden;
     vertical-align: middle;
 }
 

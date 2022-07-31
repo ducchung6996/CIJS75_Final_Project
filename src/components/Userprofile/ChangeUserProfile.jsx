@@ -104,7 +104,7 @@ const ChangeUserProfile = () => {
           id="upload-avatar"
           type="file"
         />
-        <h1>{localStorage.getItem('savedUser')}</h1>
+        <h1>{savedUser && savedUser.user}</h1>
         <label className="input-label" htmlFor="userName">
           Tên người dùng
         </label>

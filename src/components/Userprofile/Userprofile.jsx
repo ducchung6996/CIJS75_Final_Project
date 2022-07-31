@@ -28,7 +28,7 @@ const Userprofile = () => {
             alt="User"
           />
         </div>
-        <h1>{localStorage.getItem('savedUser')}</h1>
+        <h1>{savedUser && savedUser.user}</h1>
         <div className="user-infor">
           Tên người dùng: {savedUser && savedUser.userName}
         </div>

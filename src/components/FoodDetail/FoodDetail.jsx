@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./FoodDetail.css";
 import Tatca from "../Content/Tatca";
@@ -6,11 +6,32 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { SavedUser } from "../../App";
 import { useContext, useState } from "react";
+import { MoonLoader } from "react-spinners";
 
 const MySwal = withReactContent(Swal);
 
 const FoodDetail = () => {
-  const {savedUser} = useContext(SavedUser);
+  const { foodid } = useParams();
+  const [loadError, setLoadError] = useState(false);
+  const [seletedFood, setSelectedFood] = useState({});
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        let data = await (
+          await fetch(
+            `https://62e5e710de23e26379247926.mockapi.io/api/food-menu/${foodid}`
+          )
+        ).json();
+        setSelectedFood(data);
+      } catch {
+        setLoadError(true);
+      }
+    }
+    fetchData();
+  }, []);
+  
+
+  const { savedUser } = useContext(SavedUser);
   const todoList = () => {
     let addedTodoList = [];
     if (!savedUser) {
@@ -82,37 +103,47 @@ const FoodDetail = () => {
     });
     setMyTodoList([...myTodoList, a]);
   };
-  const { foodid } = useParams();
-  const seletedFood = Tatca[foodid];
   return (
     <section id="food-detail">
-      <div className="food-infor">
-        <h1 className="food-detail-title">{seletedFood.title}</h1>
-        <div className="detail-image-container">
-          <img
-            className="food-detail-image"
-            src={seletedFood.image}
-            alt={seletedFood.title}
-          />
-          <button
-            onClick={() => handleAddTodo(seletedFood.id)}
-            className={!myTodoList ? "add-todo" :
-              myTodoList.includes(seletedFood.id) ? "remove-todo" : "add-todo"
-            }
-          >
-            {!myTodoList ? "+ Thêm vào todo list" : myTodoList.includes(seletedFood.id)
-              ? "Đã có trong todo list"
-              : "+ Thêm vào todo list"}
-          </button>
+      {JSON.stringify(seletedFood) === "{}" ? (
+        <div className="loading-content">
+          <MoonLoader color={"#e18936"} speedMultiplier={0.5} />
         </div>
-        <p className="food-detail-description">{seletedFood.description}</p>
-        <iframe
-          title="map"
-          className="food-detail-location"
-          src={seletedFood.src}
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+      ) : (
+        <div className="food-infor">
+          <h1 className="food-detail-title">{seletedFood.title}</h1>
+          <div className="detail-image-container">
+            <img
+              className="food-detail-image"
+              src={seletedFood.image}
+              alt={seletedFood.title}
+            />
+            <button
+              onClick={() => handleAddTodo(seletedFood.id)}
+              className={
+                !myTodoList
+                  ? "add-todo"
+                  : myTodoList.includes(seletedFood.id)
+                  ? "remove-todo"
+                  : "add-todo"
+              }
+            >
+              {!myTodoList
+                ? "+ Thêm vào todo list"
+                : myTodoList.includes(seletedFood.id)
+                ? "Đã có trong todo list"
+                : "+ Thêm vào todo list"}
+            </button>
+          </div>
+          <p className="food-detail-description">{seletedFood.description}</p>
+          <iframe
+            title="map"
+            className="food-detail-location"
+            src={seletedFood.src}
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      )}
     </section>
   );
 };

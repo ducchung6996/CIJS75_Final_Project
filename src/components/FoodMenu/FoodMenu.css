@@ -54,6 +54,7 @@
 }
 
 .food-menu {
+    position: relative;
     display: grid;
     height: 100%;
     gap: 30px;
