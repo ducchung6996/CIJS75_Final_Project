@@ -1,0 +1,11 @@
+#foodtour {
+    height: fit-content;
+    min-height: 100vh;
+    background: none;
+    padding: 16vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}

@@ -12,6 +12,7 @@ const MySwal = withReactContent(Swal);
 
 const FoodDetail = () => {
   const { foodid } = useParams();
+  // eslint-disable-next-line
   const [loadError, setLoadError] = useState(false);
   const [seletedFood, setSelectedFood] = useState({});
   useEffect(() => {

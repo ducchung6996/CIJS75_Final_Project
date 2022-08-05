@@ -28,6 +28,7 @@
     color: #e18936;
     font-weight: bold;
     text-align: center;
+    animation: fadeinleft 1s;
 }
 
 .detail-image-container {
@@ -45,6 +46,7 @@
     font-size: 30px;
     min-width: 300px;
     width: 40vw;
+    animation: fadeinright 1s;
 }
 
 .food-detail-location {
