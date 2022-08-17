@@ -25,7 +25,7 @@ const loggedUser = JSON.parse(
 );
 root.render(
   <React.StrictMode>
-    <HashRouter >
+    <HashRouter>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home/>}/>
